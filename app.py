@@ -3,6 +3,7 @@ import logging
 from flask import render_template, request
 from data_prep_utils import appendListToXMLfile
 import xml.etree.ElementTree as ET
+from documentcloud import DocumentCloud
 
 app = Flask(__name__)
 
@@ -32,8 +33,7 @@ def get_queue(filename):
     return queue
 
 
-def sort_keys(json):
-    keys = json.keys()
+def sort_keys(keys):
     keys.sort(key = lambda x: int(x.split("-")[1]))
     keys.sort(key = lambda x: int(x.split("-")[0]))
     return keys
@@ -49,7 +49,7 @@ def prep_inputs(raw_sequence):
 @app.route("/tokens", methods=['POST'])
 def js():
     json = request.json
-    keys = sort_keys(json)
+    keys = sort_keys(json.keys())
     tagged_strings = set([])
     inputs = []
     for k in keys:
@@ -60,8 +60,16 @@ def js():
     module = __import__("contract_parser")
     appendListToXMLfile(tagged_strings, module , "out.xml")
     o = queue.pop()
-    print o
     return o
+
+
+@app.route("/verify", methods=['get'])
+def check():
+    module = __import__("contract_parser")
+    client = DocumentCloud()
+    doc = client.documents.get("1699212-ochsner-clinic-foundation-ochsner-cea-to-provide")
+    tokens = module.parse(doc.full_text)
+    print tokens
 
 
 if __name__ == "__main__":
