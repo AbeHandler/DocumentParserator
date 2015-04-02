@@ -1,0 +1,1254 @@
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 17, in hello
+    return render_template('doc.html')
+NameError: global name 'render_template' is not defined
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:16:44] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:16:44] "GET /favicon.ico HTTP/1.1" 404 -
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 17, in hello
+    def hello():
+NameError: global name 'render_template' is not defined
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:09] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:09] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 17, in hello
+    def hello():
+NameError: global name 'render_template' is not defined
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:23] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:23] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:35] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:35] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:35] "GET /js/dc-parserator.js HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:36] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:36] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:36] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:17:44] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 18, in hello
+    return render_template('doc.html')
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 128, in render_template
+    context, ctx.app)
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 110, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/abramhandler/research/tagger/templates/doc.html", line 118, in top-level template code
+    <script type="text/javascript" src="{{url_for('static/js', 'dc-parserator.js')}}"></script>
+TypeError: url_for() takes exactly 1 argument (2 given)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:25:02] "GET / HTTP/1.1" 500 -
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 18, in hello
+    return render_template('doc.html')
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 128, in render_template
+    context, ctx.app)
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 110, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/abramhandler/research/tagger/templates/doc.html", line 118, in top-level template code
+    <script type="text/javascript" src="{{url_for('js/dc-parserator.js')}}"></script>
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 312, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1641, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 305, in url_for
+    force_external=external)
+  File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1649, in build
+    raise BuildError(endpoint, values, method)
+BuildError: ('js/dc-parserator.js', {}, None)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:25:41] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:25:41] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 18, in hello
+    return render_template('doc.html')
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 128, in render_template
+    context, ctx.app)
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 110, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/abramhandler/research/tagger/templates/doc.html", line 118, in top-level template code
+    <script type="text/javascript" src="{{url_for('index')}}"></script>
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 312, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1641, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 305, in url_for
+    force_external=external)
+  File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1649, in build
+    raise BuildError(endpoint, values, method)
+BuildError: ('index', {}, None)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:28:02] "GET / HTTP/1.1" 500 -
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 18, in hello
+    return render_template('doc.html')
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 128, in render_template
+    context, ctx.app)
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 110, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/abramhandler/research/tagger/templates/doc.html", line 118, in top-level template code
+    <script type="text/javascript" src="{{url_for('index')}}"></script>
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 312, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1641, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 305, in url_for
+    force_external=external)
+  File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1649, in build
+    raise BuildError(endpoint, values, method)
+BuildError: ('index', {}, None)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:28:03] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:29:36] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:29:36] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:29:36] "GET /static/style.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:29:37] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:29:37] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:30:01] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:30:02] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:30:02] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:30:02] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:30:02] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:31:41] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:31:41] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:31:42] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 18, in hello
+    return render_template('doc.html')
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 128, in render_template
+    context, ctx.app)
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 110, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/abramhandler/research/tagger/templates/doc.html", line 23, in top-level template code
+    url: {{url_for('json', filename='features.json')}},
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 312, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1641, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 305, in url_for
+    force_external=external)
+  File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1649, in build
+    raise BuildError(endpoint, values, method)
+BuildError: ('json', MultiDict([('filename', 'features.json')]), None)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:32:06] "GET / HTTP/1.1" 500 -
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 18, in hello
+    return render_template('doc.html')
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 128, in render_template
+    context, ctx.app)
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 110, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/abramhandler/research/tagger/templates/doc.html", line 23, in top-level template code
+    url: "{{url_for('json', filename='features.json')}}",
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 312, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1641, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 305, in url_for
+    force_external=external)
+  File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1649, in build
+    raise BuildError(endpoint, values, method)
+BuildError: ('json', MultiDict([('filename', 'features.json')]), None)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:32:38] "GET / HTTP/1.1" 500 -
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 18, in hello
+    return render_template('doc.html')
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 128, in render_template
+    context, ctx.app)
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 110, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/abramhandler/research/tagger/templates/doc.html", line 23, in top-level template code
+    url: "{{url_for(filename='json/features.json')}}",
+TypeError: url_for() takes exactly 1 argument (0 given)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:33:23] "GET / HTTP/1.1" 500 -
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 18, in hello
+    return render_template('doc.html')
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 127, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 830, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 791, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 765, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/loaders.py", line 125, in load
+    code = environment.compile(source, name, filename)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 554, in compile
+    self.handle_exception(exc_info, source_hint=source)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/abramhandler/research/tagger/templates/doc.html", line 23, in template
+    url: "{{url_for('json/features.json'}}",
+TemplateSyntaxError: unexpected '}', expected ')'
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:33:45] "GET / HTTP/1.1" 500 -
+ERROR:__main__:Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 18, in hello
+    return render_template('doc.html')
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 128, in render_template
+    context, ctx.app)
+  File "/Library/Python/2.7/site-packages/flask/templating.py", line 110, in _render
+    rv = template.render(context)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 969, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/usr/local/lib/python2.7/site-packages/jinja2/environment.py", line 742, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/abramhandler/research/tagger/templates/doc.html", line 23, in top-level template code
+    url: "{{url_for('json/features.json')}}",
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 312, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1641, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/helpers.py", line 305, in url_for
+    force_external=external)
+  File "/usr/local/lib/python2.7/site-packages/werkzeug/routing.py", line 1649, in build
+    raise BuildError(endpoint, values, method)
+BuildError: ('json/features.json', {}, None)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:33:59] "GET / HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:35:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:35:00] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:35:00] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:35:21] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:35:21] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:35:21] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:17] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:17] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:17] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:18] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:18] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:30] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:30] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:31] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:32] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:32] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:55] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:55] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:56] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:36:56] "GET /profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:37:19] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:37:19] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:37:20] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:37:20] "GET /json/profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:37:20] "GET /json/profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:37:27] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:37:27] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:37:27] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:37:27] "GET /json/profiles.json HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:37:27] "GET /json/profiles.json HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:39:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:39:08] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:39:08] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:39:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:39:08] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:39:09] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:39:09] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:39:09] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:40:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:40:50] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:40:50] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:40:51] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:40:51] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:41:46] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:42:05] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:42:47] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:42:49] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:43:20] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:43:21] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:43:21] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:43:21] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:43:21] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:44:02] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:44:03] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:44:03] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:44:04] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:44:04] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:58:00] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:58:01] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:58:01] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:58:02] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 14:58:02] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:34] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:34] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:34] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:35] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:35] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:35] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:36] "POST /me HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:56] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:56] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:56] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:57] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:57] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:57] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:01:59] "POST /me/%7B%7D HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:02:02] "POST /me/%7B%7D HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:19] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:19] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:19] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:20] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:20] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:21] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:38] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:38] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:38] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:39] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:39] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:39] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:08:50] "POST /tokens/%7B%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:09:36] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:09:37] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:09:37] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:09:37] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:09:37] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:09:38] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:09:43] "POST /tokens/%7B%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:20] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:20] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:20] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:21] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:21] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:21] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:26] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:46] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:47] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:47] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:47] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:47] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:48] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:10:54] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:17] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:17] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:17] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:18] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:18] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:18] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:24] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:51] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:52] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:52] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:52] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:52] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:53] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:11:56] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:13:42] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:13:42] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:13:42] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:13:43] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:13:43] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:13:44] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:13:47] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:14:39] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:14:39] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:14:39] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:14:40] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:14:40] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:14:40] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:14:47] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:15:32] "GET /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:15:32] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:15] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:15] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:15] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:16] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:16] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:16] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:21] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:35] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:35] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:35] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:35] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:35] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:36] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:38] "GET /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:16:38] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:17:14] "GET /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:17:14] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:17:15] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:17:15] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:17:15] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:17:16] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:17:16] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:17:16] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:17:18] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:17:20] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:18:49] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:18:49] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:18:49] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:18:50] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:18:50] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:18:51] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:19:08] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:19:39] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:19:39] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:19:39] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:19:40] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:19:40] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:19:40] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:19:49] "POST /tokens?json={%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22} HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:20:09] "GET /tokens?json={%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22} HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:20:09] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:20:10] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:20:38] "GET / HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:20:38] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:20:43] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:20:43] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:20:43] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:21:02] "POST /tokens?json={%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22} HTTP/1.1" 405 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:17] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:17] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:17] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:18] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:18] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:18] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:20] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:32] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:32] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:32] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:33] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:33] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:33] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:22:35] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:07] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:07] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:07] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:08] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:08] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:08] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:25] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:32] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:39] "GET /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:39] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:41] "GET /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:23:41] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:24:47] "GET /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:24:47] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:24:52] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:24:52] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:24:53] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:24:56] "POST /tokens/%7B%22id%22:%221699212-ochsner-clinic-foundation-ochsner-cea-to-provide%22%7D HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:25:15] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:25:15] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:25:15] "GET /static/js/dc-parserator.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:25:15] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:25:15] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:25:16] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:25:18] "POST /tokens/asd HTTP/1.1" 405 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:00] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:00] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:01] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:01] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:01] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:15] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:15] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:16] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:16] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:16] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:26] "GET / HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:26] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:32] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:33] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:33] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:36:42] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+ERROR:__main__:Exception on /_add_numbers [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 27, in add_numbers
+    a = request.args.get('a', 0, type=int)
+NameError: global name 'request' is not defined
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:39:25] "GET /_add_numbers HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:42:09] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:42:09] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:42:10] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:42:10] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:42:10] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:42:18] "POST /tokens/s HTTP/1.1" 405 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:43:41] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:43:41] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:43:42] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:43:42] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:43:42] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:43:53] "POST /tokens/s HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:44:17] "POST /tokens/s HTTP/1.1" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:44:40] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:44:40] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:44:41] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:44:41] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:44:41] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:44:44] "POST /tokens/s HTTP/1.1" 405 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:45:58] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:45:58] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:45:59] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:45:59] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:46:00] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:46:03] "POST /tokens/s HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 15:46:06] "POST /tokens/s HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:30:24] "POST /tokens/s HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:51:26] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:51:26] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:51:27] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:51:27] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:51:28] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:51:35] "POST /tokens HTTP/1.1" 405 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:51:58] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:51:58] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:51:59] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:51:59] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:52:00] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+TypeError: js() takes exactly 1 argument (0 given)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:52:09] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:52:54] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:52:54] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:52:55] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:52:55] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:52:55] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 26, in js
+    json = request.json
+NameError: global name 'request' is not defined
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:52:59] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:53:32] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:53:32] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:53:33] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:53:33] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:53:33] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 26, in js
+    json = request.json
+NameError: global name 'request' is not defined
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:54:36] "POST /tokens HTTP/1.1" 500 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 26, in js
+    json = request.json
+NameError: global name 'request' is not defined
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:54:45] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:55:03] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:55:03] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:55:04] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:55:04] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:55:04] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 16:55:05] "POST /tokens HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:04:51] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:04:51] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:04:52] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:04:52] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:04:52] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:04:55] "POST /tokens HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:05:17] "POST /tokens HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:05:25] "POST /tokens HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:20:32] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:20:32] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:20:33] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:20:33] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:20:33] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:22:22] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:22:22] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:22:23] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:22:23] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:22:23] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:22:24] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:22:25] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:22:25] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:22:25] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:22:26] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:23:10] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:23:10] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:23:11] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:23:11] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:23:11] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:23:27] "POST /tokens HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:57:58] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:57:58] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:57:59] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:57:59] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:57:59] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:58:05] "POST /tokens HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:59:44] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:59:44] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:59:45] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:59:45] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 17:59:46] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:00:32] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:00:33] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:00:34] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:00:34] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:00:34] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:06:33] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:06:34] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:06:35] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:06:35] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:06:35] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:06:53] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:07:33] "POST /tokens HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:02] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:02] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:03] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:03] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:03] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:11] "POST /tokens HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:29] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:29] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:30] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:30] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:31] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:32] "POST /tokens HTTP/1.1" 500 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:10:39] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:22:26] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:22:26] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:22:27] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:22:27] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:22:28] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:01] "POST /tokens HTTP/1.1" 500 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:18] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:24] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:25] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:25] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:25] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:26] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 31, in js
+    print keys[k]
+TypeError: list indices must be integers, not unicode
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:27] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:41] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:42] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:42] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:42] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:42] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:23:45] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:05] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:05] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:06] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:06] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:06] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:09] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:40] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:40] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:41] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:41] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:41] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 18:33:43] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:34:25] "GET / HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:34:25] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:34:31] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:34:31] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:34:31] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:34:32] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:34:40] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:35:25] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:35:25] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:35:25] "GET /static/json/profiles.json HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:35:25] "GET /static/json/profiles.json HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:35:26] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:35:26] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:35:56] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:36:49] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:36:49] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:36:49] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:36:56] "POST /tokens HTTP/1.1" 500 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:37:10] "POST /tokens HTTP/1.1" 500 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:45:32] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:45:51] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:45:51] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:45:51] "GET /static/json/profiles.json HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:45:51] "GET /static/json/profiles.json HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:45:52] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:45:52] "POST /tokens HTTP/1.1" 500 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:46:01] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:59:38] "GET / HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:59:38] "GET /favicon.ico HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:59:41] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:59:41] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:59:42] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 37, in js
+    appendListToXMLfile(tagged_strings, module , "out.xml")
+NameError: global name 'appendListToXMLfile' is not defined
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:59:44] "POST /tokens HTTP/1.1" 500 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 37, in js
+    appendListToXMLfile(tagged_strings, module , "out.xml")
+NameError: global name 'appendListToXMLfile' is not defined
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 19:59:47] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:00:30] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:00:30] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:00:30] "GET /static/json/profiles.json HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:00:30] "GET /static/json/profiles.json HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:00:31] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 37, in js
+    appendListToXMLfile(tagged_strings, module , "out.xml")
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 23, in appendListToXMLfile
+    collection_XML = appendListToXML(labeled_list, collection_XML, parent_tag)
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 39, in appendListToXML
+    sequence_xml = sequence2XML(labeled_sequence, parent_tag)
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 51, in sequence2XML
+    for token, label in labeled_sequence:
+ValueError: too many values to unpack
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:00:33] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:01:09] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:01:09] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:01:09] "GET /static/json/profiles.json HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:01:09] "GET /static/json/profiles.json HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:01:10] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 38, in js
+    appendListToXMLfile(tagged_strings, module , "out.xml")
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 23, in appendListToXMLfile
+    collection_XML = appendListToXML(labeled_list, collection_XML, parent_tag)
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 39, in appendListToXML
+    sequence_xml = sequence2XML(labeled_sequence, parent_tag)
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 51, in sequence2XML
+    for token, label in labeled_sequence:
+ValueError: too many values to unpack
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:01:12] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:02:06] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:02:06] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:02:07] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 33, in js
+    tagged_strings.add(val)
+AttributeError: 'list' object has no attribute 'add'
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:02:10] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:04:33] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:04:33] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:04:33] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:04:33] "GET /static/json/profiles.json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:04:34] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 36, in js
+    tagged_strings.add(tuple(tagged_sequence))
+AttributeError: 'list' object has no attribute 'add'
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:04:38] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 35, in js
+    appendListToXMLfile(tagged_strings, module , "out.xml")
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 23, in appendListToXMLfile
+    collection_XML = appendListToXML(labeled_list, collection_XML, parent_tag)
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 39, in appendListToXML
+    sequence_xml = sequence2XML(labeled_sequence, parent_tag)
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 51, in sequence2XML
+    for token, label in labeled_sequence:
+ValueError: too many values to unpack
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:10:32] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:10:44] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:10:44] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:10:45] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 35, in js
+    appendListToXMLfile(tagged_strings, module , "out.xml")
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 23, in appendListToXMLfile
+    collection_XML = appendListToXML(labeled_list, collection_XML, parent_tag)
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 39, in appendListToXML
+    sequence_xml = sequence2XML(labeled_sequence, parent_tag)
+  File "/Users/abramhandler/research/tagger/data_prep_utils.py", line 51, in sequence2XML
+    for token, label in labeled_sequence:
+ValueError: too many values to unpack
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:10:47] "POST /tokens HTTP/1.1" 500 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:13:28] "GET /1699212-ochsner-clinic-foundation-ochsner-cea-to-provide HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:13:28] "GET /node_modules/mocha/mocha.css HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:13:28] "GET /static/json/profiles.json HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:13:28] "GET /static/json/profiles.json HTTP/1.1" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:13:29] "GET /favicon.ico HTTP/1.1" 200 -
+ERROR:__main__:Exception on /tokens [POST]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+INFO:werkzeug:127.0.0.1 - - [01/Apr/2015 20:13:37] "POST /tokens HTTP/1.1" 500 -

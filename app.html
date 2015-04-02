@@ -1,0 +1,65 @@
+<head>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/css/foundation.min.css" media="screen" charset="utf-8">
+     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+     <script type="text/javascript" src='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.3.3/js/foundation.min.js'></script>
+
+     <style type="text/css">
+
+     .grey{
+     	color: black;
+     	background-color: gray;
+     }
+     </style>
+
+</head>
+
+
+<div class="row">
+<div class="large-8 columns">
+<div id="DV-viewer-1694950-parsons-brinckerhoff-4th-amendment-long-term" class="DV-container"></div>
+<script src="//s3.amazonaws.com/s3.documentcloud.org/viewer/loader.js"></script>
+<script>
+
+function check_loader(){
+	if ($(".DV-textContents").html() == "" ){
+     var timoutid = setTimeout (check_loader , 500 );
+     log.debug("Not loaded yet");
+ 	}else{
+    sanitize();
+ 		tokenize();
+ 	}
+}
+
+var timoutid = setTimeout (check_loader , 500 );
+
+  var width = $("body").width() * .6 ;
+
+  DV.load("//www.documentcloud.org/documents/1694950-parsons-brinckerhoff-4th-amendment-long-term.js", {
+  sidebar: false,
+    pdf: false,
+    width: width,
+    height: 500,
+    container: "#DV-viewer-1694950-parsons-brinckerhoff-4th-amendment-long-term"
+  });
+  $(document).foundation();
+
+</script>
+
+<script type="text/javascript" src="lib/log4javascript.js"></script>
+<script type="text/javascript">
+  var log = log4javascript.getDefaultLogger();
+</script>
+
+</div>
+<div class="large-2 right">
+  <ul class="stack button-group">  <!--to do template -->
+    <li><a href="#" class="button small grey">Contract amount</a></li>
+    <li><a href="#" class="button small grey">Contract amount padding</a></li>
+    <li><a href="#" class="button small grey">Amendment amount</a></li>
+    <li><a href="#" class="button small grey">Amendment amount padding</a></li>
+    <li><a href="#" class="button small grey">Other amount</a></li>     
+    <li><a href="#" class="button small grey">Amendment amount padding</a></li>     
+    <li><a href="#" class="button small grey">Skip</a></li>     
+  </ul>
+</div>
+</div>

@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Contract amount",
+        "color": "blue",
+        "red": 217,
+        "green": 20,
+        "blue": 20
+        },
+        {
+        "name": "Contract amount padding",
+        "color": "red",
+        "red": 44,
+        "green": 217,
+        "blue": 20
+        },  
+        {
+        "name": "Amendment amount",
+        "color": "green",
+        "red": 20,
+        "green": 109,
+        "blue": 217
+        },
+        {
+        "name": "Amendment amount padding",
+        "color": "orange",
+        "red": 199,
+        "green": 217,
+        "blue": 20
+        },
+        {
+        "name": "Other amount",
+        "color": "purple",
+        "red": 85,
+        "green": 86,
+        "blue": 87
+        },
+        {
+        "name": "Other amount padding",
+        "color": "yellow",
+        "red": 220,
+        "green": 161,
+        "blue": 13
+        },
+        {
+        "name": "Skip",
+        "color": "grey",
+        "red": 114,
+        "green": 19,
+        "blue": 116
+        }
+]
