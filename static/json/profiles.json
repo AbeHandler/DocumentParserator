@@ -1,51 +1,50 @@
 [
     {
-        "name": "Contract amount",
-        "color": "blue",
+        "name": "contract_amount",
         "red": 217,
         "green": 20,
         "blue": 20
         },
         {
-        "name": "Contract amount padding",
-        "color": "red",
+        "name": "Contract_amount_padding",
         "red": 44,
         "green": 217,
         "blue": 20
         },  
         {
-        "name": "Amendment amount",
-        "color": "green",
+        "name": "amendment_amount",
         "red": 20,
         "green": 109,
         "blue": 217
         },
         {
-        "name": "Amendment amount padding",
-        "color": "orange",
+        "name": "amendment_amount_padding",
         "red": 199,
         "green": 217,
         "blue": 20
         },
         {
-        "name": "Other amount",
-        "color": "purple",
+        "name": "other_amount",
         "red": 85,
         "green": 86,
         "blue": 87
         },
         {
-        "name": "Other amount padding",
-        "color": "yellow",
+        "name": "other_amount_padding",
         "red": 220,
         "green": 161,
         "blue": 13
         },
         {
-        "name": "Skip",
-        "color": "grey",
+        "name": "document_self_reference",
         "red": 114,
         "green": 19,
         "blue": 116
+        },
+        {
+        "name": "amount_alphabetic",
+        "red": 51,
+        "green": 204,
+        "blue": 255
         }
 ]

@@ -72,16 +72,3 @@ def list2file(string_list, filepath):
     file = open( filepath, 'w' )
     for string in string_list:
         file.write('"%s"\n' % string)
-
-
-def naiveManualTag(raw_sequence):
-    sequence_labels = []
-    for token in raw_sequence:
-        sequence_labels.append((token[0], token[1]))
-    return sequence_labels
-
-tagged_strings = set([])
-tagged_sequence = naiveManualTag([("big", "skip"), ("red", "dog")])
-tagged_strings.add(tuple(tagged_sequence))
-module = __import__("contract_parser")
-appendListToXMLfile(tagged_strings, module , "out.xml")

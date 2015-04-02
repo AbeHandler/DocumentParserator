@@ -107,12 +107,16 @@
 </style>
 
 <div class="row">
-<div class="centered large-8 medium-8 small-8  columns">
+<div class="large-7 medium-7 small-7 columns">
 <ul class="button-group">
-  <li><a id="save" class="button">Save</a></li>
-  <li><a id="load" class="button">Load</a></li>
   <li><a id="tokens" class="button">Tokenize</a></li>
   <li><a id="xmlify" class="button">Json Dump</a></li>
+</ul>
+
+</div>
+<div class="large-5 medium-5 small-5 columns">
+<ul class="button-group">
+  <li><a id="next" class="button">Next</a></li>
 </ul>
 </div>
 </div>
@@ -162,11 +166,10 @@ $("#xmlify").on("click", function(){
             contentType: 'application/json',
             // Encode data as JSON.
             data: json,
-            // This is the type of data expected back from the server.
-            dataType: 'json',
+            
             url: '/tokens',
             success: function (ret) {
-              alert('JSON posted:');
+              window.location.href = ret;
             }
    });
 })
