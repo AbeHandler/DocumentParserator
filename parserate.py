@@ -5,8 +5,7 @@ import json
 module = __import__("contract_parser")
 client = DocumentCloud()
 
-
-doc_cloud_id = "1699212-ochsner-clinic-foundation-ochsner-cea-to-provide"
+from app import get_queue
 
 
 def tokenize(doc_cloud_id):
@@ -44,7 +43,9 @@ def pre_process(doc_cloud_id):
         output[token_ids[number]] = token
     return output
 
-parsed = pre_process(doc_cloud_id)
+queue = get_queue("doc_cloud_ids.csv")
 
-with open("static/json/" + doc_cloud_id, "w") as f:
-    f.write(json.dumps(parsed))
+for doc_cloud_id in queue:
+    parsed = pre_process(doc_cloud_id)
+    with open("static/json/" + doc_cloud_id, "w") as f:
+        f.write(json.dumps(parsed))
