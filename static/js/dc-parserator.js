@@ -3,7 +3,8 @@ $(function() {
     var Profile = Backbone.Model.extend({
       setSelected:function() {
         this.collection.setSelected(this);
-      }
+      },
+      selected:null,
     });
 
     var ProfileList = Backbone.Collection.extend({
@@ -16,6 +17,7 @@ $(function() {
           }else{
   this.selected.set({selected:false}); //turn off existing selected 
           }
+          jobSummary.set({selected:true});
           this.selected = jobSummary;
        }
     });   
