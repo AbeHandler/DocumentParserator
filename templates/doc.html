@@ -154,7 +154,7 @@ $("#tokens").on("click", function(){
 
 
 $.post( "{{url_for('static', filename='json/parserated.json')}}", function( data ) {
-  alert(data);
+  window.parserated = data
 });
 
 

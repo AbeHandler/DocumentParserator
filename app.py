@@ -1,5 +1,6 @@
-from flask import Flask
+from flask import Flask, jsonify
 import logging
+import json
 from flask import render_template, request
 from data_prep_utils import appendListToXMLfile
 import xml.etree.ElementTree as ET
@@ -68,11 +69,8 @@ def js():
 
 @app.route("/tags/<string:docid>", methods=['post'])
 def tags(docid):
-    module = __import__("contract_parser")
-    client = DocumentCloud()
-    doc = client.documents.get("1699212-ochsner-clinic-foundation-ochsner-cea-to-provide")
-    tokens = module.parse(doc.full_text)
-    print tokens
+    with open('static/json/' + docid) as f:
+        return jsonify(json.load(f))
 
 
 if __name__ == "__main__":
