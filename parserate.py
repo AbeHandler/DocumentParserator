@@ -43,10 +43,6 @@ def pre_process(doc_cloud_id):
         tag = tags[number]
         token = tokens[token_ids[number]]
         token['label'] = tag[1]  #add the tag label to the token
-        print token['word']
-        print tag[0]
-        print tag[1]
-        print token_ids[number]
         assert token['word'] == tag[0]
     return tokens
 

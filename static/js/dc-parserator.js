@@ -16,7 +16,6 @@ $(function() {
           }else{
   this.selected.set({selected:false}); //turn off existing selected 
           }
-          jobSummary.set({selected:true});
           this.selected = jobSummary;
        }
     });   
@@ -140,7 +139,11 @@ function tokenize(text){
       var id = page + "-" + token_no;
       var val = {}
       val['text'] = text.substring(matched.index, regex.lastIndex)
-      val['value'] = 'skip'
+      if(!_.isUndefined(window.data)){
+        val['value'] = window.data[id]['label'];
+      }else{
+        val['value'] = 'skip';
+      }
       token_no += 1;
       values[id] = val;
       token = span_wrap(token, id);

@@ -1,12 +1,12 @@
 [
     {
-        "name": "contract_amount",
+        "name": "contract_amount", 
         "red": 217,
         "green": 20,
         "blue": 20
         },
         {
-        "name": "Contract_amount_padding",
+        "name": "contract_amount_padding",
         "red": 44,
         "green": 217,
         "blue": 20

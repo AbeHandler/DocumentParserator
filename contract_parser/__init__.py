@@ -5,6 +5,7 @@ import warnings
 from collections import OrderedDict
 import re
 import nltk
+import pdb
 import string
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import words
@@ -20,7 +21,7 @@ CURRENCY_REG = re.compile('\$[\d]+(\.\d)? billion|\w+|\$[\d\,]+(.\d\d)?')
 #     (•ㅅ•) || 
 #     / 　 づ
 
-LABELS = ["amendment_amount", "amendment_amount_description", "agreement_amount", "agreement_amount_description", "other_amount", "other_amount_description", "document_self_reference", "amount_alphabetic", "skip"] # The labels should be a list of strings
+LABELS = ["amendment_amount", "amendment_amount_padding", "contract_amount", "contract_amount_padding", "other_amount", "other_amount_padding", "document_self_reference", "amount_alphabetic", "skip", "post_amended_amount", "post_amended_amount_padding"] # The labels should be a list of strings
 
 
 def get_number_words():
@@ -45,7 +46,6 @@ except IOError :
 def parse(raw_string):
     if not TAGGER:
         raise IOError('\nMISSING MODEL FILE: %s\nYou must train the model before you can use the parse and tag methods\nTo train the model annd create the model file, run:\nparserator train [traindata] [modulename]' %MODEL_FILE)
-
     tokenizer = RegexpTokenizer('\$[\d]+(\.\d)? billion|\w+|\$[\d\,]+(.\d\d)?')
     tokens = tokenizer.tokenize(raw_string)
     if not tokens :
