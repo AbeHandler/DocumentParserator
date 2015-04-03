@@ -95,9 +95,11 @@ $("#save").on("click", function(){
 
 
 $("#tokens").on("click", function(){
-  add_spans();
-  load_handlers();
-  check_for_labels();
+  if ($(".DV-textContents").html().indexOf("<span ") == -1){
+    add_spans();
+    load_handlers();
+    check_for_labels();
+  }
 })
 
 
@@ -174,9 +176,11 @@ function load_handlers(){
 
 
 function add_spans(){
-  var tokens = tokenize($(".DV-textContents").html());
-  var new_text = re_write(tokens);
-  $(".DV-textContents").html(new_text);
+  if ($(".DV-textContents").html().indexOf("<span ") == -1){  //has not been tokenized 
+    var tokens = tokenize($(".DV-textContents").html());
+    var new_text = re_write(tokens);
+    $(".DV-textContents").html(new_text);
+  }
 }
 
 
