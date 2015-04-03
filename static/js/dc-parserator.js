@@ -1,3 +1,77 @@
+
+$(function() {
+    var Profile = Backbone.Model.extend({
+      setSelected:function() {
+        this.collection.setSelected(this);
+      }
+    });
+
+    var ProfileList = Backbone.Collection.extend({
+        model: Profile,
+        url: "/static/json/profiles.json",
+        selected: $.noop(),
+        setSelected: function(jobSummary) {
+          if (_.isUndefined(this.selected)){
+  $.noop(); //no operation if unselected
+          }else{
+  this.selected.set({selected:false}); //turn off existing selected 
+          }
+          jobSummary.set({selected:true});
+          this.selected = jobSummary;
+       }
+    });   
+
+    var ProfileView = Backbone.View.extend({
+        el: "#categories",
+        template: _.template($('#profileTemplate').html()),
+        render: function(eventName) {
+_.each(this.model.models, function(profile){
+    var profile_json = profile.toJSON();
+    profile_json['cid'] = profile.cid
+    var profileTemplate = this.template(profile_json);
+    $(this.el).append(profileTemplate);
+    var number = "#" + profile.cid;
+    var r = profile.get("red");
+    var g = profile.get("green");
+    var b = profile.get("blue");
+    $(number).css({background: "rgba(" + r + "," + g + "," + b + "," + .6 +")"});
+    $(number).css({border: "1px solid rgb(" + r + "," + g + "," + b + ")"})
+    profile.on('change:selected', function(model, color) {
+      if (_.isUndefined(profiles.selected)){
+        $(number).css({background: "rgb(" + r + "," + g + "," + b + ")"});
+      }
+      else if (profiles.selected.cid == model.cid){
+        $(number).css({background: "rgba(" + r + "," + g + "," + b + ", .6)"}); //make it opaque
+      }else{
+        $(number).css({background: "rgb(" + r + "," + g + "," + b + ")"});
+      }
+    });
+}, this);
+
+return this;
+        }
+    });
+
+    window.profiles = new ProfileList();
+
+    window.profiles.fetch();
+
+    var profilesView = new ProfileView({model: profiles});
+    window.profiles.fetch({
+        success: function() {
+          profilesView.render();
+          $(".button").on("click", function(event){
+var eid = event.target.id;
+if (event.target.tagName=="SPAN"){
+  eid = event.target.parentNode.id;
+}
+var model = window.profiles.get(eid);
+window.profiles.setSelected(model);
+          });
+        }
+    });
+});
+
 pages_html = {} 
 values = {}
 pages_html['id'] = "{{docid}}"
@@ -24,13 +98,18 @@ $("#save").on("click", function(){
 $("#tokens").on("click", function(){
   add_spans();
   load_handlers();
+  check_for_labels();
 })
 
 
-$.post("tags/{{doc_cloud_id}}", function(data){
-  window.data=data
+function check_for_labels(){
+  if (_.isUndefined(window.data)){
+    $.post("tags/" + $(".DV-container").first().attr("id").replace("DV-viewer-",""), function(data){
+      window.data=data;
+    });
   }
-);
+}
+
 
 $("#xmlify").on("click", function(){
   var json = JSON.stringify(values);
@@ -40,7 +119,7 @@ $("#xmlify").on("click", function(){
       contentType: 'application/json',
       // Encode data as JSON.
       data: json,
-            
+
       url: '/tokens',
       success: function (ret) {
         window.location.href = ret;

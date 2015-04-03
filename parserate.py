@@ -15,13 +15,17 @@ def tokenize(doc_cloud_id):
     ids = {}
     doc = client.documents.get(doc_cloud_id)
     pages = doc.pages
-    for x in range(1, pages + 1):
+    for page in range(1, pages + 1):
         counter = 0
-        tokens = module.tokenize(doc.get_page_text(x))
+        tokens = module.tokenize(doc.get_page_text(page))
         for t in tokens:
-            tokenid = str(x) + "-" + str(counter)
+            tokenid = str(page) + "-" + str(counter)
             counter += 1
-            ids[tokenid] = t
+            output = {}
+            output['page'] = page
+            output['word'] = t
+            output['count'] = counter
+            ids[tokenid] = output
     return ids
 
 
@@ -32,20 +36,26 @@ def parse(doc_cloud_id):
 
 
 def pre_process(doc_cloud_id):
-    output = {}
     tokens = tokenize(doc_cloud_id)
     tags = module.parse(client.documents.get(doc_cloud_id).full_text)
     token_ids = sort_keys(tokens.keys())
     for number in range(0, len(tags)):
-        token = {}
-        token['word'] = tags[number][0]
-        token['label'] = tags[number][1]
-        output[token_ids[number]] = token
-    return output
+        tag = tags[number]
+        token = tokens[token_ids[number]]
+        token['label'] = tag[1]  #add the tag label to the token
+        print token['word']
+        print tag[0]
+        print tag[1]
+        print token_ids[number]
+        assert token['word'] == tag[0]
+    return tokens
+
 
 queue = get_queue("doc_cloud_ids.csv")
 
+
 for doc_cloud_id in queue:
+    print doc_cloud_id
     parsed = pre_process(doc_cloud_id)
     with open("static/json/" + doc_cloud_id, "w") as f:
         f.write(json.dumps(parsed))
