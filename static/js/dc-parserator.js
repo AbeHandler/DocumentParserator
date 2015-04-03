@@ -1,4 +1,6 @@
 pages_html = {} 
+values = {}
+pages_html['id'] = "{{docid}}"
 
 function span_wrap(m, id){
    return "<span id=\"" + id +"\" class='token' data-tag='skip'>" + m + "</span>";
@@ -25,17 +27,25 @@ $("#tokens").on("click", function(){
 })
 
 
-$("#load").on("click", function(){
-  $(".DV-textContents").html(pages_html[currentPage()]);
-})
+$.post("tags/{{doc_cloud_id}}", function(data){
+  window.data=data
+  }
+);
 
 $("#xmlify").on("click", function(){
-  pages_html['id'] = $(".DV-container").first().attr("id").replace("DV-viewer-","");
-  var json_string = JSON.stringify(pages_html);
-  var url = "tokens/asd" //+ json_string;
-  $.post(url, function(){
-    console.log("w");
-  });
+  var json = JSON.stringify(values);
+  $.ajax({
+      type: 'POST',
+      // Provide correct Content-Type, so that Flask will know how to process it.
+      contentType: 'application/json',
+      // Encode data as JSON.
+      data: json,
+            
+      url: '/tokens',
+      success: function (ret) {
+        window.location.href = ret;
+      } 
+   });
 })
 
 
@@ -49,7 +59,11 @@ function tokenize(text){
     while (matched = regex.exec(text)) {
       var token = text.substring(matched.index, regex.lastIndex);
       var id = page + "-" + token_no;
+      var val = {}
+      val['text'] = text.substring(matched.index, regex.lastIndex)
+      val['value'] = 'skip'
       token_no += 1;
+      values[id] = val;
       token = span_wrap(token, id);
       var in_between = "";
       if (last_index_remember > 0){
@@ -84,13 +98,6 @@ function add_spans(){
 }
 
 
-var Page = Backbone.Model.extend({
-  number:$.noop(),
-  tokens: null,
-  html:null
-});
-
-
 function update_selected_label(id){
   var red = window.profiles.selected.attributes.red;
   var green = window.profiles.selected.attributes.green;
@@ -107,22 +114,11 @@ function load_token_handlers(){
       alert("You must select a tag before you can label a token");
     }else{
       update_selected_label("#" + event.target.id);
+      var name_class = window.profiles.selected.get("name").replace(" ", "_");
+      var val = {}
+      val['text'] = $("#" + event.target.id).html();
+      val['value'] = name_class;
+      values[event.target.id] = val;
     }
   });
 }
-
-
-var DocCloudDocument = Backbone.Collection.extend({
-  model: Page,
-  hasPage: function(num){
-    var pages = this.where({"number": num}).length;
-    if (pages == 0){
-      return false;
-    }else if (pages==1){
-      return true;
-    }
-  },
-  current_page: null
-});
-
-window.doc = new DocCloudDocument;
