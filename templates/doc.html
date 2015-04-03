@@ -153,21 +153,11 @@ $("#tokens").on("click", function(){
 })
 
 
-$.post( "{{url_for('static', filename='json/parserated.json')}}", function( data ) {
-  window.parserated = data
-});
+$.post("tags/{{doc_cloud_id}}", function(data){
+  window.data=data
+  }
+);
 
-
-function load_json(){
-
-  $.getJSON( "{{url_for('static', filename='json/parserated.json')}}", function( data ) {
-    alert(data);
-  });
-}
-
-$("#load").on("click", function(){
-  $(".DV-textContents").html(pages_html[currentPage()]);
-})
 
 
 $("#xmlify").on("click", function(){
