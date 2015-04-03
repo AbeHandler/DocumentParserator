@@ -46,5 +46,17 @@
         "red": 51,
         "green": 204,
         "blue": 255
+        },
+        {
+        "name": "post_amended_amount",
+        "red": 0,
+        "green": 0,
+        "blue": 255
+        },
+        {
+        "name": "post_amended_amount_padding",
+        "red": 0,
+        "green": 255,
+        "blue": 0
         }
 ]

@@ -153,6 +153,18 @@ $("#tokens").on("click", function(){
 })
 
 
+$.post( "{{url_for('static', filename='json/parserated.json')}}", function( data ) {
+  alert(data);
+});
+
+
+function load_json(){
+
+  $.getJSON( "{{url_for('static', filename='json/parserated.json')}}", function( data ) {
+    alert(data);
+  });
+}
+
 $("#load").on("click", function(){
   $(".DV-textContents").html(pages_html[currentPage()]);
 })

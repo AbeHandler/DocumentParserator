@@ -28,9 +28,12 @@ def contract(docid):
     return render_template('doc.html', docid=docid)
 
 
-def get_queue(filename):
-    queue = [q.replace("\n", "") for q in open(filename)]
-    return queue
+def get_queue(filename, skiplist = None):
+    queue = set([q.replace("\n", "") for q in open(filename)])
+    if skiplist:
+        skiplist = set([q.replace("\n", "") for q in open(skiplist)])
+        queue = queue - skiplist
+    return list(queue)
 
 
 def sort_keys(keys):
@@ -63,8 +66,8 @@ def js():
     return o
 
 
-@app.route("/verify", methods=['get'])
-def check():
+@app.route("/tags/<string:docid>", methods=['post'])
+def tags(docid):
     module = __import__("contract_parser")
     client = DocumentCloud()
     doc = client.documents.get("1699212-ochsner-clinic-foundation-ochsner-cea-to-provide")
@@ -73,5 +76,5 @@ def check():
 
 
 if __name__ == "__main__":
-    queue = get_queue("doc_cloud_ids.csv")
+    queue = get_queue("doc_cloud_ids.csv", 'skip_list.txt')
     app.run()

@@ -35,7 +35,7 @@ def parse(doc_cloud_id):
 def pre_process(doc_cloud_id):
     output = {}
     tokens = tokenize(doc_cloud_id)
-    tags = module.parse(client.documents.get(doc_cloud_id).full_text[0:100])
+    tags = module.parse(client.documents.get(doc_cloud_id).full_text)
     token_ids = sort_keys(tokens.keys())
     for number in range(0, len(tags)):
         token = {}
@@ -44,4 +44,7 @@ def pre_process(doc_cloud_id):
         output[token_ids[number]] = token
     return output
 
-print pre_process(doc_cloud_id)
+parsed = pre_process(doc_cloud_id)
+
+with open("static/json/" + doc_cloud_id, "w") as f:
+    f.write(json.dumps(parsed))
