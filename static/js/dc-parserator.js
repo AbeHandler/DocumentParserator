@@ -105,11 +105,25 @@ $("#tokens").on("click", function(){
 })
 
 
+function load_labels(){
+  var current_page = currentPage();
+  var gender_filter = PourOver.makeExactFilter("page", ["1", "2", "3","4"]);
+}
+
+
 function check_for_labels(){
   if (_.isUndefined(window.data)){
     $.post("tags/" + $(".DV-container").first().attr("id").replace("DV-viewer-",""), function(data){
-      window.data=data;
+      data = jQuery.parseJSON(data); //to do ... clean up so gets jquery from jserver
+      window.data = new PourOver.Collection(data);
+      var total_pages = $(".DV-totalPages").first().html();
+      var range = _.range(1,total_pages + 1);
+      var page_filter = PourOver.makeExactFilter("page", range); 
+      window.data.addFilters([page_filter])
+      load_labels();
     });
+  }else{
+      load_labels();
   }
 }
 

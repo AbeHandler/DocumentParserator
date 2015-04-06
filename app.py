@@ -70,7 +70,8 @@ def js():
 @app.route("/tags/<string:docid>", methods=['post'])
 def tags(docid):
     with open('static/json/' + docid) as f:
-        return jsonify(json.load(f))
+        file_json = json.load(f)
+        return json.dumps(file_json)
 
 
 if __name__ == "__main__":

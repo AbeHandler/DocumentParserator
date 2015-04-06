@@ -39,12 +39,17 @@ def pre_process(doc_cloud_id):
     tokens = tokenize(doc_cloud_id)
     tags = module.parse(client.documents.get(doc_cloud_id).full_text)
     token_ids = sort_keys(tokens.keys())
+    out = []
     for number in range(0, len(tags)):
         tag = tags[number]
         token = tokens[token_ids[number]]
         token['label'] = tag[1]  #add the tag label to the token
+        token['id'] = token_ids[number]
         assert token['word'] == tag[0]
-    return tokens
+        out.append(token)
+    return out
+
+#{"3-311": {"count": 312, "word": "manner", "page": 3, "label": "skip"},
 
 
 queue = get_queue("doc_cloud_ids.csv")
