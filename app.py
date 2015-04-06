@@ -50,25 +50,29 @@ def prep_inputs(raw_sequence):
     return sequence_labels
 
 
-@app.route("/tokens", methods=['POST'])
-def js():
-    json = request.json
-    keys = sort_keys(json.keys())
-    tagged_strings = set([])
+@app.route("/tokens/<string:docid>", methods=['POST'])
+def js(docid):
+    json = request.json  #get the json from the server
+    print docid
+    keys = sort_keys(json.keys())  #sort the keys (i.e. the token ids)
+    tagged_strings = set([])  
     inputs = []
     for k in keys:
-        val = (json[k]['text'], json[k]['value'])
+        val = (json[k]['text'], json[k]['value'])   #get the labels that the user input to the UI
         inputs.append(val)
     tagged_sequence = prep_inputs(inputs)
     tagged_strings.add(tuple(tagged_sequence))
-    module = __import__("contract_parser")
-    appendListToXMLfile(tagged_strings, module , "out.xml")
-    o = queue.pop()
+    module = __import__("contract_parser")       #import the parserator model
+    appendListToXMLfile(tagged_strings, module , "out.xml")  #send the XML to the file
+    o = queue.pop()                              #get a new contract id to display on the UI
     return o
 
 
-@app.route("/tags/<string:docid>", methods=['post'])
+@app.route("/tags/<string:docid>", methods=['post'])  
 def tags(docid):
+    """
+    The UI is requesting parserator's tags. Send them back to the server.
+    """
     with open('static/json/' + docid) as f:
         file_json = json.load(f)
         return json.dumps(file_json)
