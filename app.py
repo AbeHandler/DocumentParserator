@@ -63,7 +63,7 @@ def js(docid):
     tagged_sequence = prep_inputs(inputs)
     tagged_strings.add(tuple(tagged_sequence))
     module = __import__("contract_parser")       #import the parserator model
-    appendListToXMLfile(tagged_strings, module , "out.xml")  #send the XML to the file
+    appendListToXMLfile(tagged_strings, module , docid + ".xml")  #send the XML to the file
     o = queue.pop()                              #get a new contract id to display on the UI
     return o
 
