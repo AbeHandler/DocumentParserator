@@ -72,6 +72,7 @@ $(function() {
     var profilesView = new ProfileView({
         model: profiles
     });
+
     window.profiles.fetch({
         success: function() {
             profilesView.render();
@@ -89,8 +90,6 @@ $(function() {
 
 
 values = {}
-values['id'] = $(".DV-container").first().attr("id").replace("DV-viewer-", ""); //get the doc cloud id
-
 
 function span_wrap(m, id) {
     return "<span id=\"" + id + "\" class='token' data-tag='skip'>" + m + "</span>";
@@ -116,6 +115,9 @@ $("#tokens").on("click", function() {
 
 
 function load_labels() {
+    if (_.isUndefined(window.data)){
+        return; //if window data has not been loaded (i.e. parserator is untrained or has not tagged this doc yet), skip this method. 
+    }
     var current_page = currentPage();
     var matches = window.data.filters.page.getFn(current_page);
     var labels = window.data.get(matches.cids);
@@ -125,8 +127,7 @@ function load_labels() {
             var selected = _.filter(window.profiles.models, function(num) {
                 return num.attributes.name == e.label;
             })[0];
-            window.profiles.setSelected(selected);
-            update_selected_label("#" + e.id);
+            update_selected_label("#" + e.id, e.label);
         }
     });
 }
@@ -178,12 +179,8 @@ function tokenize(text) {
         var token = text.substring(matched.index, regex.lastIndex);
         var id = page + "-" + token_no;
         var val = {}
-        val['text'] = text.substring(matched.index, regex.lastIndex)
-        if (!_.isUndefined(window.data)) {
-            val['value'] = window.data[id]['label'];
-        } else {
-            val['value'] = 'skip';
-        }
+        val['text'] = text.substring(matched.index, regex.lastIndex);
+        val['value'] = "skip";
         token_no += 1;
         values[id] = val;
         token = span_wrap(token, id);
@@ -195,6 +192,7 @@ function tokenize(text) {
         tokens.push(in_between);
         tokens.push(token);
     }
+    load_labels();
     return tokens;
 }
 
@@ -222,12 +220,9 @@ function add_spans() {
 }
 
 
-function update_selected_label(id) {
-    var red = window.profiles.selected.attributes.red;
-    var green = window.profiles.selected.attributes.green;
-    var blue = window.profiles.selected.attributes.blue;
-    var name_class = window.profiles.selected.get("name").replace(" ", "_")
-    $(id).css("border", "3px solid rgb(" + red + "," + green + "," + blue + ")");
+function update_selected_label(id, name_class) {
+    var model = window.profiles.findWhere({name: name_class});
+    $(id).css("border", "2px solid rgb(" + model.get("red") + "," + model.get("green") + "," + model.get("blue") + ")");
     $(id).attr("data-tag", name_class);
 }
 
@@ -237,8 +232,11 @@ function load_token_handlers() {
         if (_.isUndefined(window.profiles.selected)) {
             alert("You must select a tag before you can label a token");
         } else {
-            update_selected_label("#" + event.target.id);
             var name_class = window.profiles.selected.get("name").replace(" ", "_");
+            if ($("#" + event.target.id).attr("data-tag")!="skip"){  //toggle skip.
+                 name_class = "skip";
+            }
+            update_selected_label("#" + event.target.id, name_class);
             var val = {}
             val['text'] = $("#" + event.target.id).html();
             val['value'] = name_class;
