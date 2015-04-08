@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 import logging
+import os
 import json
 from flask import render_template, request
 from data_prep_utils import appendListToXMLfile
@@ -53,17 +54,19 @@ def prep_inputs(raw_sequence):
 @app.route("/tokens/<string:docid>", methods=['POST'])
 def js(docid):
     json = request.json  #get the json from the server
-    print json
     keys = sort_keys(json.keys())  #sort the keys (i.e. the token ids)
     tagged_strings = set([])  
     inputs = []
     for k in keys:
-        print k
         val = (json[k]['text'], json[k]['value'])   #get the labels that the user input to the UI
         inputs.append(val)
     tagged_sequence = prep_inputs(inputs)
     tagged_strings.add(tuple(tagged_sequence))
     module = __import__("contract_parser")       #import the parserator model
+    try:
+        os.remove(docid)
+    except OSError:
+        pass
     appendListToXMLfile(tagged_strings, module , docid)  #send the XML to the file
     o = queue.pop()                              #get a new contract id to display on the UI
     return o
