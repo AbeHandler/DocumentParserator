@@ -53,6 +53,9 @@ def prep_inputs(raw_sequence):
 
 @app.route("/tokens/<string:docid>", methods=['POST'])
 def js(docid):
+    """
+    The UI is sending tagged tokens back to the server. Save them to train parserator
+    """
     json = request.json  #get the json from the server
     keys = sort_keys(json.keys())  #sort the keys (i.e. the token ids)
     tagged_strings = set([])  
@@ -64,10 +67,10 @@ def js(docid):
     tagged_strings.add(tuple(tagged_sequence))
     module = __import__("contract_parser")       #import the parserator model
     try:
-        os.remove(docid)
+        os.remove("labels/" + docid + ".xml")
     except OSError:
         pass
-    appendListToXMLfile(tagged_strings, module , docid)  #send the XML to the file
+    appendListToXMLfile(tagged_strings, module , "labels/" + docid + ".xml")  #send the XML to the file
     o = queue.pop()                              #get a new contract id to display on the UI
     return o
 
@@ -77,7 +80,10 @@ def tags(docid):
     """
     The UI is requesting parserator's tags. Send them back to the server.
     """
-    with open('static/json/' + docid) as f:
+    filename = 'static/json/' + docid
+    if not os.path.isfile(filename):
+        return ""
+    with open(filename) as f:
         file_json = json.load(f)
         return json.dumps(file_json)
 
