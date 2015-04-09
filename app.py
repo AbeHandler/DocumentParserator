@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 import logging
 import os
+import glob
 import json
 from flask import render_template, request
 from data_prep_utils import appendListToXMLfile
@@ -88,6 +89,14 @@ def tags(docid):
         return json.dumps(file_json)
 
 
+def filter_queue(queue, location):
+    already_labeled = [i.replace("\n", "").replace(".xml", "") for i in glob.glob(location + "/*")]
+    to_label = list(set(queue)-set(already_labeled))
+    return to_label
+
+
+
 if __name__ == "__main__":
-    queue = get_queue("doc_cloud_ids.csv", 'skip_list.txt')
+    queue = get_queue("doc_cloud_ids.csv", 'skip_list.txt')[0:100]
+    filter_queue(queue, "labels")
     app.run()

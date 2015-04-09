@@ -97,8 +97,8 @@ function span_wrap(m, id) {
 
 
 function currentPage() {
-    if (_.isUndefined($(".DV-currentPage").first().html())) {
-        return $.noop();
+    if ((_.isUndefined($(".DV-currentPage").first().html())) && $(".DV-textContents").html().length > 0) {
+        return 1; //if undefined then loader is on first page but there is text content (i.e. page displayed)
     } else {
         return parseInt($(".DV-currentPage").first().html());
     }
@@ -106,12 +106,19 @@ function currentPage() {
 
 
 $("#tokens").on("click", function() {
-    if ($(".DV-textContents").html().indexOf("<span ") == -1) {
-        add_spans();
-        load_handlers();
-        check_for_labels();
+    if ($(".DV-textContents").html().length == 0){
+        $(".DV-trigger")[3].click();
     }
-})
+    else{
+        var total_pages = parseInt($(".DV-totalPages").first().html()); //wont work when total pages = 0
+        if ($(".DV-textContents").html().indexOf("<span ") == -1) {
+            add_spans();
+            load_handlers();
+            check_for_labels();
+            $(".DV-next").click();      
+        }
+    }
+});
 
 
 function load_labels() {

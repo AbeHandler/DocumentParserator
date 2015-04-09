@@ -1,6 +1,7 @@
 from documentcloud import DocumentCloud
 from app import sort_keys
 import json
+import sys
 
 module = __import__("contract_parser")
 client = DocumentCloud()
@@ -51,12 +52,13 @@ def pre_process(doc_cloud_id):
 
 #{"3-311": {"count": 312, "word": "manner", "page": 3, "label": "skip"},
 
+doc_cloud_id = sys.argv[1].replace("/backups/contracts", "").replace("_text.txt", "")
 
-queue = get_queue("doc_cloud_ids.csv")
+print doc_cloud_id
 
-
-for doc_cloud_id in queue:
-    print doc_cloud_id
+try:
     parsed = pre_process(doc_cloud_id)
     with open("static/json/" + doc_cloud_id, "w") as f:
         f.write(json.dumps(parsed))
+except:
+    pass
