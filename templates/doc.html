@@ -23,7 +23,7 @@
 
 <style type="text/css">
   .token{
-    border: 2px solid black;
+    border: 1px solid black;
   }
 </style>
 
@@ -42,28 +42,34 @@
 </div>
 </div>
 
-<div class="row">
+<div class="row" id="holder">
 
-<div class="large-8 columns">
+
+<div class="large-10 medium-10 small-10 columns">
     <div id="DV-viewer-{{docid}}" class="DV-container"></div>
     <script src="//s3.amazonaws.com/s3.documentcloud.org/viewer/loader.js"></script>
 </div>
+
 <div id='right' class="large-2 columns">
 <ul id='categories' class="stack button-group">
 </ul>
 </div>
+
 </div>
+
+    <script type="text/javascript" src="{{url_for('static', filename='js/dc-parserator.js')}}"></script>
+
     <script>
-         var width = $("body").width() * .6 ;
          DV.load("//www.documentcloud.org/documents/{{docid}}.js", {
           sidebar: false,
           pdf: false,
-          width: width,
-          height: 500,
+          width: $("body").width() * .4 ,
+          height: $("body").height() * .9 ,
           container: "#DV-viewer-{{docid}}"
         });
         $(document).foundation();
     </script>
-    <script type="text/javascript" src="{{url_for('static', filename='js/dc-parserator.js')}}"></script>
+
+
   </body>
 </html>
