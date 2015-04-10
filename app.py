@@ -95,8 +95,15 @@ def filter_queue(queue, location):
     return to_label
 
 
+def my_key(a):
+    filename = "static/json/" + a 
+    if os.path.isfile(filename):
+        return 1
+    return 0
+
 
 if __name__ == "__main__":
-    queue = get_queue("doc_cloud_ids.csv", 'skip_list.txt')[0:100]
-    filter_queue(queue, "labels")
+    queue = get_queue("doc_cloud_ids.csv", 'skip_list.txt')
+    #filter_queue(queue, "labels")  #filter out already labeled contracts
+    queue.sort(key=my_key)    #sort based  
     app.run()

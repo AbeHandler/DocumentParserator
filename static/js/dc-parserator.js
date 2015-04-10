@@ -115,7 +115,6 @@ $("#tokens").on("click", function() {
             add_spans();
             load_handlers();
             check_for_labels();
-            $(".DV-next").click();      
         }
     }
 });
