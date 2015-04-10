@@ -106,16 +106,14 @@ function currentPage() {
 
 
 $("#tokens").on("click", function() {
-    if ($(".DV-textContents").html().length == 0){
-        $(".DV-trigger")[3].click();
-    }
-    else{
-        var total_pages = parseInt($(".DV-totalPages").first().html()); //wont work when total pages = 0
-        if ($(".DV-textContents").html().indexOf("<span ") == -1) {
-            add_spans();
-            load_handlers();
-            check_for_labels();
-        }
+    var total_pages = parseInt($(".DV-totalPages").first().html()); //wont work when total pages = 0
+    for (i = 1; i < total_pages + 1; i++) { 
+        DV.viewers[_.keys(DV.viewers)[0]].api.setCurrentPage(i);
+        var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(i);
+        var page_text_tokenized = add_spans(page_text);
+        DV.viewers[_.keys(DV.viewers)[0]].api.setPageText(page_text_tokenized, i);
+        load_token_handlers();
+        check_for_labels();
     }
 });
 
@@ -214,16 +212,13 @@ function re_write(tokens) {
 }
 
 
-function load_handlers() {
-    load_token_handlers();
-}
-
-
-function add_spans() {
-    if ($(".DV-textContents").html().indexOf("<span ") == -1) { //has not been tokenized 
-        var tokens = tokenize($(".DV-textContents").html());
+function add_spans(text) {
+    if (text.indexOf("<span ") == -1) { //has not been tokenized 
+        var tokens = tokenize(text);
         var new_text = re_write(tokens);
-        $(".DV-textContents").html(new_text);
+        return new_text;
+    }else{
+        return $(".DV-textContents").html();
     }
 }
 
