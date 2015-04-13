@@ -34,6 +34,8 @@
   <li><a id="xmlify" class="button">Json Dump</a></li>
 </ul>
 
+
+
 </div>
 <div class="large-5 medium-5 small-5 columns">
 <ul class="button-group">
@@ -44,6 +46,9 @@
 
 <div class="row" id="holder">
 
+<div id="doc_cloud_id" data-docid="{{docid}}">
+    <div class="centered columns large-6">{{docid}}</div>
+</div>
 
 <div class="large-10 medium-10 small-10 columns">
     <div id="DV-viewer-{{docid}}" class="DV-container"></div>
@@ -65,7 +70,8 @@
           pdf: false,
           width: $("body").width() * .4 ,
           height: $("body").height() * .9 ,
-          container: "#DV-viewer-{{docid}}"
+          container: "#DV-viewer-{{docid}}",
+          afterLoad: viewer_has_loaded 
         });
         $(document).foundation();
     </script>

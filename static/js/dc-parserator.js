@@ -91,30 +91,43 @@ $(function() {
 
 values = {}
 
+
 function span_wrap(m, id) {
     return "<span id=\"" + id + "\" class='token' data-tag='skip'>" + m + "</span>";
 }
 
 
-function currentPage() {
-    if ((_.isUndefined($(".DV-currentPage").first().html())) && $(".DV-textContents").html().length > 0) {
-        return 1; //if undefined then loader is on first page but there is text content (i.e. page displayed)
-    } else {
-        return parseInt($(".DV-currentPage").first().html());
+function viewer_has_loaded(){
+    check_for_labels();
+}
+
+
+function current_page_has_span_tags(){
+   var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
+   var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(current_page);
+   if (page_text.indexOf("<span ") != -1){
+       return true;
+   }else{
+       return false;
+   }
+}
+
+
+function tokenize_current_page(){
+    var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
+    if (!current_page_has_span_tags()){
+        insert_spans();
     }
+    load_labels();
+    load_token_handlers();
 }
 
 
 $("#tokens").on("click", function() {
-    var total_pages = parseInt($(".DV-totalPages").first().html()); //wont work when total pages = 0
-    for (i = 1; i < total_pages + 1; i++) { 
-        DV.viewers[_.keys(DV.viewers)[0]].api.setCurrentPage(i);
-        var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(i);
-        var page_text_tokenized = add_spans(page_text);
-        DV.viewers[_.keys(DV.viewers)[0]].api.setPageText(page_text_tokenized, i);
-        load_token_handlers();
-        check_for_labels();
-    }
+    DV.viewers[_.keys(DV.viewers)[0]].api.onPageChange(function(){
+        tokenize_current_page();
+    });
+    tokenize_current_page();
 });
 
 
@@ -122,43 +135,46 @@ function load_labels() {
     if (_.isUndefined(window.data)){
         return; //if window data has not been loaded (i.e. parserator is untrained or has not tagged this doc yet), skip this method. 
     }
-    var current_page = currentPage();
+    var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
     var matches = window.data.filters.page.getFn(current_page);
     var labels = window.data.get(matches.cids);
     $.each(labels, function(i, e) {
-        if (e.label != "skip") {
-            $("#" + e.id).attr("data-tag", e.label);
-            var selected = _.filter(window.profiles.models, function(num) {
-                return num.attributes.name == e.label;
-            })[0];
-            update_selected_label("#" + e.id, e.label);
-        }
+        $("#" + e.id).attr("data-tag", e.label);
+        var selected = _.filter(window.profiles.models, function(num) {
+             return num.attributes.name == e.label;
+        })[0];
+        update_selected_label("#" + e.id, e.label);
     });
 }
 
-
+/**
+Makes an attempt to get tags for the doc_cloud_id from the server. 
+If it finds the tags, it loads them in window.data. If it doesn't
+then window.data will remain undefined. 
+ */
 function check_for_labels() {
     if (_.isUndefined(window.data)) {
-        $.post("tags/" + $(".DV-container").first().attr("id").replace("DV-viewer-", ""), function(data) {
+        $.post("tags/" + $("#doc_cloud_id").attr("data-docid"), function(data) {
             if (data != ""){
                 data = jQuery.parseJSON(data); //to do ... clean up so gets jquery from jserver
                 window.data = new PourOver.Collection(data);
-                var total_pages = $(".DV-totalPages").first().html();
+                var total_pages = DV.viewers[_.keys(DV.viewers)[0]].api.numberOfPages()
                 var range = _.range(1, total_pages + 1);
                 var page_filter = PourOver.makeExactFilter("page", range);
                 window.data.addFilters([page_filter])
-                load_labels();
             }
         });
-    } else {
-        load_labels();
-    }
+    } 
 }
 
 
+/**
+Dumps tokens to the server so that it can generate 
+Parserator-ready json 
+ */
 $("#xmlify").on("click", function() {
     var json = JSON.stringify(values);
-    var post_url = '/tokens/' + $(".DV-container").first().attr("id").replace("DV-viewer-", "");
+    var post_url = '/tokens/' + $("#doc_cloud_id").attr("data-docid");
     $.ajax({
         type: 'POST',
         // Provide correct Content-Type, so that Flask will know how to process it.
@@ -174,12 +190,16 @@ $("#xmlify").on("click", function() {
 })
 
 
+/**
+This should probablyt happen on the client side. Parserator
+should do it
+ */
 function tokenize(text) {
     var regex = /\$[\d]+(\.\d)? billion|\w+|\$[\d\,]+(.\d\d)?/g;
     var tokens = [];
     var in_betweens = [];
     var last_index_remember = 0;
-    var page = currentPage();
+    var page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
     var token_no = 0;
     while (matched = regex.exec(text)) {
         var token = text.substring(matched.index, regex.lastIndex);
@@ -198,28 +218,29 @@ function tokenize(text) {
         tokens.push(in_between);
         tokens.push(token);
     }
-    load_labels();
     return tokens;
 }
 
 
-function re_write(tokens) {
+/**
+Insert span tags to a page in a document
+ */
+function insert_spans(text) {
+    if (current_page_has_span_tags()) { //already has span tags 
+        return; 
+    }
+    var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
+    var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(current_page);
+    var tokens = tokenize(text);
     var output = "";
     $.each(tokens, function(i, token) {
         output += token;
     });
+        
+    DV.viewers[_.keys(DV.viewers)[0]].api.setPageText(page_text_tokenized, current_page);
+    $(".DV-textContents").html(page_text_tokenized);
+
     return output;
-}
-
-
-function add_spans(text) {
-    if (text.indexOf("<span ") == -1) { //has not been tokenized 
-        var tokens = tokenize(text);
-        var new_text = re_write(tokens);
-        return new_text;
-    }else{
-        return $(".DV-textContents").html();
-    }
 }
 
 
