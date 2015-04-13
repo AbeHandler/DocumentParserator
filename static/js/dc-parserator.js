@@ -98,7 +98,10 @@ function span_wrap(m, id) {
 
 
 function viewer_has_loaded(){
-    check_for_labels();
+    check_for_labels(); //check for labels before loading more
+    DV.viewers[_.keys(DV.viewers)[0]].api.onPageChange(function(){
+        tokenize_current_page();
+    });
 }
 
 
@@ -113,20 +116,38 @@ function current_page_has_span_tags(){
 }
 
 
-function tokenize_current_page(){
+function current_page_is_undefined(){
     var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
-    if (!current_page_has_span_tags()){
-        insert_spans();
+    var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(current_page);
+    if (_.isUndefined(page_text)){
+        return true;
+    }else{
+        return false;
     }
-    load_labels();
-    load_token_handlers();
+}
+
+function tokenize_current_page(){
+    //You need to be in text view or have been in text view 
+    //Otherwise the viewer API won't give the text 
+    if (DV.viewers[_.keys(DV.viewers)[0]].api.getState() != "ViewText"){
+        return;
+    }
+    if (current_page_is_undefined()){
+        console.log("waiting 1/4 second for text to load");
+        setTimeout(tokenize_current_page, 250);
+    } else{
+        if (!current_page_has_span_tags()){
+            insert_spans();
+        }
+        load_labels();
+        load_token_handlers();
+    }
 }
 
 
+
 $("#tokens").on("click", function() {
-    DV.viewers[_.keys(DV.viewers)[0]].api.onPageChange(function(){
-        tokenize_current_page();
-    });
+    $("span:contains('Text')").click(); //click text tab
     tokenize_current_page();
 });
 
@@ -231,16 +252,15 @@ function insert_spans(text) {
     }
     var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
     var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(current_page);
-    var tokens = tokenize(text);
-    var output = "";
+    var tokens = tokenize(page_text);
+    var page_text_tokenized = "";
     $.each(tokens, function(i, token) {
-        output += token;
+        page_text_tokenized += token;
     });
         
     DV.viewers[_.keys(DV.viewers)[0]].api.setPageText(page_text_tokenized, current_page);
     $(".DV-textContents").html(page_text_tokenized);
 
-    return output;
 }
 
 
