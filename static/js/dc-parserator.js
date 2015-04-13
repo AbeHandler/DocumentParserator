@@ -1,4 +1,7 @@
-$(function() {
+/**
+Sets up backbone collections and views
+ */
+(function() {
     var Profile = Backbone.Model.extend({
         setSelected: function() {
             this.collection.setSelected(this);
@@ -31,7 +34,7 @@ $(function() {
         render: function(eventName) {
             _.each(this.model.models, function(profile) {
                 var profile_json = profile.toJSON();
-                profile_json['cid'] = profile.cid
+                profile_json['cid'] = profile.cid;
                 var profileTemplate = this.template(profile_json);
                 $(this.el).append(profileTemplate);
                 var number = "#" + profile.cid;
@@ -86,57 +89,78 @@ $(function() {
             });
         }
     });
-});
+})(jQuery);
 
 
+/**
+Simple object to store the value of each token
+ */
 values = {}
 
 
+/**
+Called when the DV's afterLoad fires
+ */
 function span_wrap(m, id) {
     return "<span id=\"" + id + "\" class='token' data-tag='skip'>" + m + "</span>";
 }
 
 
-function viewer_has_loaded(){
+/**
+Return HTML that wraps an ID in a span tag
+ */
+function viewer_has_loaded() {
     check_for_labels(); //check for labels before loading more
-    DV.viewers[_.keys(DV.viewers)[0]].api.onPageChange(function(){
+    DV.viewers[_.keys(DV.viewers)[0]].api.onPageChange(function() {
         tokenize_current_page();
     });
 }
 
-
-function current_page_has_span_tags(){
-   var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
-   var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(current_page);
-   if (page_text.indexOf("<span ") != -1){
-       return true;
-   }else{
-       return false;
-   }
-}
-
-
-function current_page_is_undefined(){
+/**
+Returns true if span tags have already been added
+ */
+function current_page_has_span_tags() {
     var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
     var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(current_page);
-    if (_.isUndefined(page_text)){
+    if (page_text.indexOf("<span ") != -1) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
 
-function tokenize_current_page(){
-    //You need to be in text view or have been in text view 
+/**
+Returns true if current page is undefined
+i.e. the page is stil loading
+ */
+function current_page_is_undefined() {
+    var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
+    var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(current_page);
+    if (_.isUndefined(page_text)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+Will busy wait until the page is tokenized. 
+Eventually it would be great to get a callback
+from the DC viewer onPageLoad but it can't do that
+yet.
+ */
+function tokenize_current_page() {
+
+    //Viewer needs to be in text view or have been in text view 
     //Otherwise the viewer API won't give the text 
-    if (DV.viewers[_.keys(DV.viewers)[0]].api.getState() != "ViewText"){
+    if (DV.viewers[_.keys(DV.viewers)[0]].api.getState() != "ViewText") {
         return;
     }
-    if (current_page_is_undefined()){
+    if (current_page_is_undefined()) {
         console.log("waiting 1/4 second for text to load");
         setTimeout(tokenize_current_page, 250);
-    } else{
-        if (!current_page_has_span_tags()){
+    } else {
+        if (!current_page_has_span_tags()) {
             insert_spans();
         }
         load_labels();
@@ -145,15 +169,24 @@ function tokenize_current_page(){
 }
 
 
-
+/**
+Will busy wait until the page is tokenized. 
+Eventually it would be great to get a callback
+from the DC viewer onPageLoad but it can't do that
+yet.
+ */
 $("#tokens").on("click", function() {
     $("span:contains('Text')").click(); //click text tab
     tokenize_current_page();
 });
 
 
+/**
+Adds labels from parserator to the span tags
+-- but only if it can find them from the server
+ */
 function load_labels() {
-    if (_.isUndefined(window.data)){
+    if (_.isUndefined(window.data)) {
         return; //if window data has not been loaded (i.e. parserator is untrained or has not tagged this doc yet), skip this method. 
     }
     var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
@@ -162,7 +195,7 @@ function load_labels() {
     $.each(labels, function(i, e) {
         $("#" + e.id).attr("data-tag", e.label);
         var selected = _.filter(window.profiles.models, function(num) {
-             return num.attributes.name == e.label;
+            return num.attributes.name == e.label;
         })[0];
         update_selected_label("#" + e.id, e.label);
     });
@@ -171,12 +204,12 @@ function load_labels() {
 /**
 Makes an attempt to get tags for the doc_cloud_id from the server. 
 If it finds the tags, it loads them in window.data. If it doesn't
-then window.data will remain undefined. 
+then window.data will remain undefined. Tags come from Parserator
  */
 function check_for_labels() {
     if (_.isUndefined(window.data)) {
         $.post("tags/" + $("#doc_cloud_id").attr("data-docid"), function(data) {
-            if (data != ""){
+            if (data != "") {
                 data = jQuery.parseJSON(data); //to do ... clean up so gets jquery from jserver
                 window.data = new PourOver.Collection(data);
                 var total_pages = DV.viewers[_.keys(DV.viewers)[0]].api.numberOfPages()
@@ -185,13 +218,13 @@ function check_for_labels() {
                 window.data.addFilters([page_filter])
             }
         });
-    } 
+    }
 }
 
 
 /**
 Dumps tokens to the server so that it can generate 
-Parserator-ready json 
+Parserator-formatted XML
  */
 $("#xmlify").on("click", function() {
     var json = JSON.stringify(values);
@@ -203,7 +236,7 @@ $("#xmlify").on("click", function() {
         // Encode data as JSON.
         data: json,
 
-        url: post_url ,
+        url: post_url,
         success: function(ret) {
             window.location.href = ret;
         }
@@ -212,9 +245,10 @@ $("#xmlify").on("click", function() {
 
 
 /**
-This should probablyt happen on the client side. Parserator
-should do it
- */
+This should probably happen on the server side. 
+As it stands, tokenization is happening on client side and
+on the server side. That will be trouble. 
+*/
 function tokenize(text) {
     var regex = /\$[\d]+(\.\d)? billion|\w+|\$[\d\,]+(.\d\d)?/g;
     var tokens = [];
@@ -248,7 +282,7 @@ Insert span tags to a page in a document
  */
 function insert_spans(text) {
     if (current_page_has_span_tags()) { //already has span tags 
-        return; 
+        return;
     }
     var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
     var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(current_page);
@@ -257,28 +291,35 @@ function insert_spans(text) {
     $.each(tokens, function(i, token) {
         page_text_tokenized += token;
     });
-        
+
     DV.viewers[_.keys(DV.viewers)[0]].api.setPageText(page_text_tokenized, current_page);
     $(".DV-textContents").html(page_text_tokenized);
 
 }
 
-
+/**
+Set a label's data-tag and color
+ */
 function update_selected_label(id, name_class) {
-    var model = window.profiles.findWhere({name: name_class});
+    var model = window.profiles.findWhere({
+        name: name_class
+    });
     $(id).css("border", "2px solid rgb(" + model.get("red") + "," + model.get("green") + "," + model.get("blue") + ")");
     $(id).attr("data-tag", name_class);
 }
 
 
+/**
+Add handlers for the token classes
+ */
 function load_token_handlers() {
     $(".token").on("click", function(event) {
         if (_.isUndefined(window.profiles.selected)) {
             alert("You must select a tag before you can label a token");
         } else {
             var name_class = window.profiles.selected.get("name").replace(" ", "_");
-            if ($("#" + event.target.id).attr("data-tag")!="skip"){  //toggle skip.
-                 name_class = "skip";
+            if ($("#" + event.target.id).attr("data-tag") != "skip") { //toggle skip.
+                name_class = "skip";
             }
             update_selected_label("#" + event.target.id, name_class);
             var val = {}
