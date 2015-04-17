@@ -86,7 +86,7 @@ def tokens_dump(docid):
     The UI is sending tagged tokens back to the server.
     Save them to train parserator
     """
-    tagged_strings = set([])
+    tagged_strings = set()
     labels = get_labels()
     tagged_sequence = labels # replacing prep_inputs method. still works?
     tagged_strings.add(tuple(tagged_sequence))
