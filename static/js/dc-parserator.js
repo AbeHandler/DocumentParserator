@@ -170,18 +170,6 @@ function tokenize_current_page() {
 
 
 /**
-Will busy wait until the page is tokenized. 
-Eventually it would be great to get a callback
-from the DC viewer onPageLoad but it can't do that
-yet.
- */
-$("#tokens").on("click", function() {
-    $("span:contains('Text')").click(); //click text tab
-    tokenize_current_page();
-});
-
-
-/**
 Adds labels from parserator to the span tags
 -- but only if it can find them from the server
  */
@@ -321,6 +309,8 @@ function load_token_handlers() {
             if ($("#" + event.target.id).attr("data-tag") != "skip") { //toggle skip.
                 name_class = "skip";
             }
+            item = window.data.items.filter(function(v){return v.id === event.target.id})[0];
+            item.label = name_class;
             update_selected_label("#" + event.target.id, name_class);
             var val = {}
             val['text'] = $("#" + event.target.id).html();
