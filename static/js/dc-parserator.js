@@ -11,7 +11,7 @@ Sets up backbone collections and views
 
     var ProfileList = Backbone.Collection.extend({
         model: Profile,
-        url: "/static/json/profiles.json",
+        url: "/static/json/tags.json",
         selected: $.noop(),
         setSelected: function(jobSummary) {
             if (_.isUndefined(this.selected)) {

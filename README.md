@@ -8,7 +8,7 @@ If you have a bunch of similar documents on DocumentCloud and you want to know w
 
 DocumentParserator was originally developed in order to help analyze a corpus of 6500 contracts from the City of New Orleans, which all look something like [this](https://www.documentcloud.org/documents/1873385-dawn-e-boudoin-ccr-inc-court-reporting-services.html).
 
-So basically I wanted to take unstructured lines like this
+Basically I wanted to take unstructured lines like this
 
 > s of 1110 of an hour. The maximum amount to be paid under this contract is $20,000.00. No amount of  work is guaranteed under this agreement; payments wil
 
@@ -36,3 +36,6 @@ To do
 ###Troubleshooting
 
 Too slow...
+
+-paralell command
+

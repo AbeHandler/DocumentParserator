@@ -16,7 +16,7 @@ def appendListToXMLfile(labeled_list, module, filepath):
             collection_XML = stripFormatting(collection_XML)
 
     else:
-        collection_tag = "a"
+        collection_tag = "Collection" # this is changed
         collection_XML = etree.Element(collection_tag)
 
     parent_tag = module.PARENT_LABEL
