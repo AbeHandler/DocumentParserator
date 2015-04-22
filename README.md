@@ -39,3 +39,7 @@ Too slow...
 
 -paralell command
 
+
+###Guide to code
+
+`webapp` - A simple flask application. The only complexity is is that `webapp/labels` stores parserator-ready XML
