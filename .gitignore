@@ -1,4 +1,5 @@
 *pyc
 static/json/*
 contract_parser*
+webapp/static/json/*
 log/tagger.log
