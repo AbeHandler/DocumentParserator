@@ -1,0 +1,68 @@
+[
+    {
+        "name": "contract_amount", 
+        "red": 217,
+        "green": 20,
+        "blue": 20
+        },
+        {
+        "name": "contract_amount_padding",
+        "red": 44,
+        "green": 217,
+        "blue": 20
+        },  
+        {
+        "name": "amendment_amount",
+        "red": 20,
+        "green": 109,
+        "blue": 217
+        },
+        {
+        "name": "amendment_amount_padding",
+        "red": 199,
+        "green": 217,
+        "blue": 20
+        },
+        {
+        "name": "other_amount",
+        "red": 85,
+        "green": 86,
+        "blue": 87
+        },
+        {
+        "name": "other_amount_padding",
+        "red": 220,
+        "green": 161,
+        "blue": 13
+        },
+        {
+        "name": "document_self_reference",
+        "red": 114,
+        "green": 19,
+        "blue": 116
+        },
+        {
+        "name": "amount_alphabetic",
+        "red": 51,
+        "green": 204,
+        "blue": 255
+        },
+        {
+        "name": "post_amended_amount",
+        "red": 0,
+        "green": 0,
+        "blue": 255
+        },
+        {
+        "name": "post_amended_amount_padding",
+        "red": 10,
+        "green": 150,
+        "blue": 10
+        },
+        {
+        "name": "skip",
+        "red": 0,
+        "green": 0,
+        "blue": 0
+        }
+]
