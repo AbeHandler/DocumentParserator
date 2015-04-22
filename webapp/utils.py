@@ -1,8 +1,10 @@
 from documentcloud import DocumentCloud
 import json
 import sys
+import importlib
 
-module = __import__("contract_parser")
+module = importlib.import_module('documentparserator.contract_parser')
+
 client = DocumentCloud()
 
 

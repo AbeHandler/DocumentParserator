@@ -5,11 +5,12 @@ from flask import Flask
 import logging
 import os
 import json
-from parserate import sort_keys
+from documentparserator.parserator import parserate
+from documentparserator.parserator.parserate import sort_keys
 from flask import render_template, request
-from data_prep_utils import appendListToXMLfile
+from documentparserator.data_prep_utils import appendListToXMLfile
 from documentcloud import DocumentCloud
-from parserate import get_document_page
+from documentparserator.parserator.parserate  import get_document_page
 
 app = Flask(__name__)
 
