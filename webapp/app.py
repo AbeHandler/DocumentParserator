@@ -10,10 +10,13 @@ from flask import render_template, request
 from documentparserator.data_prep_utils import appendListToXMLfile
 from documentcloud import DocumentCloud
 from documentparserator.utils import get_document_page
+from documentparserator.settings import Settings
 
 app = Flask(__name__)
 
-logging.basicConfig(level=logging.DEBUG, filename="log/tagger.log")
+SETTINGS = Settings()
+
+logging.basicConfig(level=logging.DEBUG, filename=SETTINGS.LOG_LOCATION)
 
 LEVELS = {'debug': logging.DEBUG,
           'info': logging.INFO,
