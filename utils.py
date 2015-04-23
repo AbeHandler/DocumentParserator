@@ -3,7 +3,7 @@ import json
 import sys
 import importlib
 
-module = importlib.import_module('documentparserator.contract_parser')
+module = importlib.import_module('documentparserator.parserator.contract_parser')
 
 client = DocumentCloud()
 
