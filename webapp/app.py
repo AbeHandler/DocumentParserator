@@ -99,17 +99,16 @@ def tokens_dump(docid):
         return queue.pop()
 
 
-
 def get_blanks(doc_cloud_id):
     doc = CLIENT.documents.get(doc_cloud_id)
     pages = doc.pages
     blanks = []
-    for page in range(1, pages):
+    for page in range(1, pages + 1):
         page_text = get_document_page(doc_cloud_id, page)
         page_tokens = MODULE.tokenize(page_text)
         counter = 1
-        word = {}
         for token in page_tokens:
+            word = {}
             word['count'] = counter
             word['word'] = token
             word['label'] = "skip"

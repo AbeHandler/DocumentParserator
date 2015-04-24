@@ -23,7 +23,9 @@ def get_document_page(doc_cloud_id, page):
     Get a page in a document cloud document
     """
     doc = client.documents.get(doc_cloud_id)
-    return doc.get_page_text(page)
+    page_text = doc.get_page_text(page)
+    page_text = page_text.encode("ascii", "ignore").decode("ascii", "ignore")
+    return page_text
 
 
 def get_labeled_tokens(doc_cloud_id, page):

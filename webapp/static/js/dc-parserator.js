@@ -110,7 +110,6 @@ function span_wrap(m, id) {
 Return HTML that wraps an ID in a span tag
  */
 function viewer_has_loaded() {
-    check_for_labels(); //check for labels before loading more
     DV.viewers[_.keys(DV.viewers)[0]].api.onPageChange(function() {
         tokenize_current_page();
     });
@@ -198,11 +197,9 @@ function check_for_labels() {
     if (_.isUndefined(window.data)) {
         $.post("tags/" + $("#doc_cloud_id").attr("data-docid"), function(data) {
             if (data != "") {
-                window.data = new PourOver.Collection(data);
+                window.data = JSON.parse(data);
                 var total_pages = DV.viewers[_.keys(DV.viewers)[0]].api.numberOfPages()
                 var range = _.range(1, total_pages + 1);
-                var page_filter = PourOver.makeExactFilter("page", range);
-                window.data.addFilters([page_filter])
             }
         });
     }
@@ -248,14 +245,13 @@ As it stands, tokenization is happening on client side and
 on the server side. That will be trouble. 
 */
 function tokenize(text) {
-    var tokens = [];
+    var output = [];
     var in_betweens = [];
     var last_index_remember = 0;
     var page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
     var token_no = 0;
-    var tokens = break_into_tokens(text);
-    while (matched = regex.exec(text)) {
-        var token = text.substring(matched.index, regex.lastIndex);
+    var tokens = window.data.filter(function(n){return is_page(page, n.id)});
+    for (token in tokens) {
         var id = page + "-" + token_no;
         var val = {}
         val['text'] = text.substring(matched.index, regex.lastIndex);
@@ -268,10 +264,17 @@ function tokenize(text) {
             in_between = text.substring(last_index_remember, matched.index);
         }
         last_index_remember = regex.lastIndex;
-        tokens.push(in_between);
-        tokens.push(token);
+        output.push(in_between);
+        output.push(token);
     }
-    return tokens;
+
+    return output;
+}
+
+
+function is_page(page, id){
+    var re = new RegExp(page + "-");
+    return re.test(id);
 }
 
 
@@ -330,6 +333,4 @@ function load_token_handlers() {
     });
 }
 
-$.post("/tags/1155359-jack-b-harper-contractor-inc-contract-with-city", function( data ) {
-  console.log(data);
-});
+check_for_labels();
