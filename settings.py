@@ -11,4 +11,3 @@ class Settings():
     def __init__(self):
         self.CONFIG_LOCATION = "config.cfg"
         self.LOG_LOCATION = self.get_from_config("log_location")
-

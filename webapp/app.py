@@ -2,8 +2,10 @@
 This very simple Flask app allows you to tag tokens in a DocumentCloud document
 """
 from flask import Flask
+from flask import jsonify
 import logging
 import os
+import importlib
 import json
 from documentparserator.utils import sort_keys
 from flask import render_template, request
@@ -18,12 +20,7 @@ SETTINGS = Settings()
 
 logging.basicConfig(level=logging.DEBUG, filename=SETTINGS.LOG_LOCATION)
 
-LEVELS = {'debug': logging.DEBUG,
-          'info': logging.INFO,
-          'warning': logging.WARNING,
-          'error': logging.ERROR,
-          'critical': logging.CRITICAL}
-
+MODULE = importlib.import_module('documentparserator.parserator.contract_parser')
 
 CLIENT = DocumentCloud()
 
@@ -103,44 +100,44 @@ def tokens_dump(docid):
 
 
 
-def get_blanks(doc_cloud_id, page):
-    page_text = get_document_page(doc_cloud_id, page)
-    page_tokens = tokenize(page_text)
-    labeled_tokens = label_tokens(page_tokens)
-    blanks = {}
-    counter = 1
-    for token in labeled_tokens:
-        blanks['count'] = counter
-        blanks['id'] = str(page) + "-" + str(counter)
-        blanks['word'] = token
-        blanks['label'] = "skip"
-        counter = counter + 1
+def get_blanks(doc_cloud_id):
+    doc = CLIENT.documents.get(doc_cloud_id)
+    pages = doc.pages
+    blanks = []
+    for page in range(1, pages):
+        page_text = get_document_page(doc_cloud_id, page)
+        page_tokens = MODULE.tokenize(page_text)
+        counter = 1
+        word = {}
+        for token in page_tokens:
+            word['count'] = counter
+            word['word'] = token
+            word['label'] = "skip"
+            word['id'] = str(page) + "-" + str(counter)
+            counter = counter + 1
+            blanks.append(word)
     return blanks
-
-
-@app.route("/tokenize/<string:docid>", methods=['post'])
-def get_tags(docid):
-    """
-    The UI is requesting parserator's tag. Send them back to the server.
-    """
-    page = int(request.args.get("page"))
-    filename = 'static/json/' + docid
-    if not os.path.isfile(filename):
-        blanks = get_blanks(docid, page)
-        return json.dumps(blanks)
 
 
 @app.route("/tags/<string:docid>", methods=['post'])
 def tags(docid):
     """
-    The UI is requesting parserator's tags. Send them back to the server.
+    The UI is requesting parserator's tags.
+    If they've been processed, send them to client side
+    Else, send a bunch of blank tags
     """
     filename = 'static/json/' + docid
     if not os.path.isfile(filename):
-        return ""
+        blanks = get_blanks(docid)
+        # to do
+        # http://stackoverflow.com/questions/12435297/how-do-i-jsonify-a-list-in-flask
+        return json.dumps(blanks) 
     with open(filename) as tokens_file:
-        file_json = json.load(tokens_file)
-        return json.dumps(file_json)
+        try:
+            file_json = json.load(tokens_file)
+            return json.dumps(file_json)
+        except:
+            return json.dumps(blanks)
 
 
 # TO DO DOES THIS METHOD WORK RIGHT? TESTS.

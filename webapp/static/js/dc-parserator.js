@@ -198,7 +198,6 @@ function check_for_labels() {
     if (_.isUndefined(window.data)) {
         $.post("tags/" + $("#doc_cloud_id").attr("data-docid"), function(data) {
             if (data != "") {
-                data = jQuery.parseJSON(data); //to do ... clean up so gets jquery from jserver
                 window.data = new PourOver.Collection(data);
                 var total_pages = DV.viewers[_.keys(DV.viewers)[0]].api.numberOfPages()
                 var range = _.range(1, total_pages + 1);
@@ -330,3 +329,7 @@ function load_token_handlers() {
         }
     });
 }
+
+$.post("/tags/1155359-jack-b-harper-contractor-inc-contract-with-city", function( data ) {
+  console.log(data);
+});
