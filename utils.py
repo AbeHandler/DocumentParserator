@@ -1,12 +1,24 @@
-from documentcloud import DocumentCloud
 import json
 import re
 import sys
+import logging
 import importlib
+from documentparserator.settings import Settings
+from documentcloud import DocumentCloud
 
+SETTINGS = Settings()
 module = importlib.import_module('documentparserator.parserator.contract_parser')
-
+logging.basicConfig(level=logging.DEBUG, filename=SETTINGS.LOG_LOCATION)
 client = DocumentCloud()
+
+
+def get_colors(tag):
+    """
+    Get the colors for a certain tag
+    """
+    with open(SETTINGS.TAGS_LOCATION) as data_file:
+        data = json.load(data_file)
+    return [d for d in data if d['name']==tag].pop()
 
 
 def sort_keys(keys):
@@ -49,10 +61,18 @@ def get_labeled_tokens(doc_cloud_id, page):
 
 
 def span_wrap(text, span_id, tag):
-    return "<span id=\"" + span_id + "\" class=\"token\" data-tag=\"" + tag + "\">" + text + "</span>"
+    if tag=="skip":
+        return "<span id=\"" + span_id + "\" class=\"token\" data-tag=\"" + tag + "\">" + text + "</span>"
+    else:
+        colors = get_colors(tag)
+        style = 'style="border: 2px solid rgb(' + str(colors['red']) + ',' +\
+            ' ' + str(colors['green']) + ', ' + str(colors['blue']) + ');"'
+        return "<span id=\"" + span_id +\
+               "\" class=\"token\" data-tag=\"" +\
+               tag + "\"" + style +\
+               ">" + text + "</span>"
 
-
-def spanify(page_text, page_no):
+def spanify(page_text, page_no, labels=None):
     tokens = module.tokenize(page_text, True)
     last_index_mem = 0
     in_between = ""
@@ -67,7 +87,15 @@ def spanify(page_text, page_no):
             in_between = page_text[last_index_mem: start];
         last_index_mem = end;
         spanid = str(page_no) + "-" + str(token_no)
-        new_token = span_wrap(str(page_text[start: end]), spanid, "skip")
+        if labels:
+            try:
+                correct_label = [l for l in labels if spanid==l['id']].pop()['label']
+            except IndexError:
+                logging.debug("Skipping. Could not find label for " + spanid)
+                correct_label = "skip"
+            new_token = span_wrap(str(page_text[start: end]), spanid, correct_label)
+        else:
+            new_token = span_wrap(str(page_text[start: end]), spanid, "skip")
         new_tokens.append(new_token)
         in_betweens.append(in_between)
 

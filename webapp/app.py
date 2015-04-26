@@ -75,6 +75,25 @@ def get_labels():
     return labels
 
 
+@app.route("/tags/<string:docid>", methods=['post'])
+def tags(docid):
+    """
+    The UI is requesting parserator's tags.
+    If they've been processed, send them to client side
+    Else, send a bunch of blank tags
+    """
+    page = request.args.get('page')
+    filename = SETTINGS.LABELED_LOCATION + '/' + docid
+    doc = CLIENT.documents.get(docid)
+    page_text = get_document_page(docid, page)
+    if not os.path.isfile(filename):
+        return spanify(page_text, page)
+    else:
+        with open(filename) as tokens_file:
+            labels = json.load(tokens_file)
+            return spanify(page_text, page, labels)
+
+
 @app.route("/tokens/<string:docid>", methods=['POST'])
 def tokens_dump(docid):
     """
@@ -116,6 +135,6 @@ def sort_have_labels(doc_cloud_id):
 
 
 if __name__ == "__main__":
-    queue = get_queue(settings.DOC_CLOUD_IDS)
+    queue = get_queue(SETTINGS.DOC_CLOUD_IDS)
     queue.sort(key=sort_have_labels)  # sort fa
     app.run()
