@@ -99,14 +99,6 @@ values = {}
 
 
 /**
-Called when the DV's afterLoad fires
- */
-function span_wrap(m, id) {
-    return "<span id=\"" + id + "\" class='token' data-tag='skip'>" + m + "</span>";
-}
-
-
-/**
 Return HTML that wraps an ID in a span tag
  */
 function viewer_has_loaded() {
@@ -239,39 +231,6 @@ function page_tokens(page_no){
 }
 
 
-/**
-This should probably happen on the server side. 
-As it stands, tokenization is happening on client side and
-on the server side. That will be trouble. 
-*/
-function tokenize(text) {
-    var output = [];
-    var in_betweens = [];
-    var last_index_remember = 0;
-    var page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
-    var token_no = 0;
-    var tokens = window.data.filter(function(n){return is_page(page, n.id)});
-    for (token in tokens) {
-        var id = page + "-" + token_no;
-        var val = {}
-        val['text'] = text.substring(matched.index, regex.lastIndex);
-        val['value'] = "skip";
-        token_no += 1;
-        values[id] = val;
-        token = span_wrap(token, id);
-        var in_between = "";
-        if (last_index_remember > 0) {
-            in_between = text.substring(last_index_remember, matched.index);
-        }
-        last_index_remember = regex.lastIndex;
-        output.push(in_between);
-        output.push(token);
-    }
-
-    return output;
-}
-
-
 function is_page(page, id){
     var re = new RegExp(page + "-");
     return re.test(id);
@@ -282,20 +241,10 @@ function is_page(page, id){
 Insert span tags to a page in a document
  */
 function insert_spans(text) {
-    if (current_page_has_span_tags()) { //already has span tags 
-        return;
+    $.post("tags/1155681-perez-a-professional-corporation-contract-with?page=" + current_page, function(data){
+        DV.viewers[_.keys(DV.viewers)[0]].api.setPageText(data, current_page);
+        $(".DV-textContents").html(page_text_tokenized);
     }
-    var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
-    var page_text = DV.viewers[_.keys(DV.viewers)[0]].api.getPageText(current_page);
-    var tokens = tokenize(page_text);
-    var page_text_tokenized = "";
-    $.each(tokens, function(i, token) {
-        page_text_tokenized += token;
-    });
-
-    DV.viewers[_.keys(DV.viewers)[0]].api.setPageText(page_text_tokenized, current_page);
-    $(".DV-textContents").html(page_text_tokenized);
-
 }
 
 /**

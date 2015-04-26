@@ -7,6 +7,7 @@ import logging
 import os
 import importlib
 import json
+from documentparserator.utils import spanify
 from documentparserator.utils import sort_keys
 from flask import render_template, request
 from documentparserator.data_prep_utils import appendListToXMLfile
@@ -99,25 +100,6 @@ def tokens_dump(docid):
         return queue.pop()
 
 
-def get_blanks(doc_cloud_id):
-    doc = CLIENT.documents.get(doc_cloud_id)
-    pages = doc.pages
-    blanks = []
-    for page in range(1, pages + 1):
-        page_text = get_document_page(doc_cloud_id, page)
-        page_tokens = MODULE.tokenize(page_text)
-        counter = 1
-        for token in page_tokens:
-            word = {}
-            word['count'] = counter
-            word['word'] = token
-            word['label'] = "skip"
-            word['id'] = str(page) + "-" + str(counter)
-            counter = counter + 1
-            blanks.append(word)
-    return blanks
-
-
 @app.route("/tags/<string:docid>", methods=['post'])
 def tags(docid):
     """
@@ -125,12 +107,12 @@ def tags(docid):
     If they've been processed, send them to client side
     Else, send a bunch of blank tags
     """
+    page = request.args.get('page')
     filename = 'static/json/' + docid
     if not os.path.isfile(filename):
-        blanks = get_blanks(docid)
-        # to do
-        # http://stackoverflow.com/questions/12435297/how-do-i-jsonify-a-list-in-flask
-        return json.dumps(blanks) 
+        doc = CLIENT.documents.get(docid)
+        page_text = get_document_page(docid, page)
+        return spanify(page_text, str(page))
     with open(filename) as tokens_file:
         try:
             file_json = json.load(tokens_file)

@@ -1,5 +1,6 @@
 from documentcloud import DocumentCloud
 import json
+import re
 import sys
 import importlib
 
@@ -24,7 +25,6 @@ def get_document_page(doc_cloud_id, page):
     """
     doc = client.documents.get(doc_cloud_id)
     page_text = doc.get_page_text(page)
-    print type(page_text)
     page_text = page_text.decode("ascii", "ignore").encode("ascii", "ignore")
     return page_text
 
@@ -71,3 +71,34 @@ def pre_process(doc_cloud_id):
         assert token['word'] == tag[0]
         out.append(token)
     return out
+
+
+def span_wrap(text, span_id, tag):
+    return "<span span_id=\"" + span_id + "\" class=\"token\" data-tag=\"" + tag + "\">" + text + "</span>"
+
+
+def spanify(page_text, page_no):
+    tokens = module.tokenize(page_text, True)
+    last_index_mem = 0
+    in_between = ""
+    new_tokens = []
+    in_betweens = []
+    token_no = 1
+    for t in tokens:
+        start = t[0]
+        end = t[1]
+        token_no = token_no + 1
+        if (last_index_mem > 0): 
+            in_between = page_text[last_index_mem: start];
+        last_index_mem = end;
+        spanid = str(page_no) + "-" + str(token_no)
+        new_token = span_wrap(str(page_text[start: end]), spanid, "skip")
+        new_tokens.append(new_token)
+        in_betweens.append(in_between)
+
+    output = ""
+
+    for i in range(0,len(new_tokens)):
+        output = output + new_tokens[i] + in_betweens[i]
+
+    return output.replace("\n", "<br />")
