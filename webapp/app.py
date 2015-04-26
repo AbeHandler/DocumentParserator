@@ -10,18 +10,18 @@ import json
 from documentparserator.utils import spanify
 from documentparserator.utils import sort_keys
 from flask import render_template, request
-from documentparserator.data_prep_utils import appendListToXMLfile
 from documentcloud import DocumentCloud
 from documentparserator.utils import get_document_page
 from documentparserator.settings import Settings
+
+MODULE = importlib.import_module('documentparserator.parserator.contract_parser')
+from parserator.data_prep_utils import appendListToXMLfile
 
 app = Flask(__name__)
 
 SETTINGS = Settings()
 
 logging.basicConfig(level=logging.DEBUG, filename=SETTINGS.LOG_LOCATION)
-
-MODULE = importlib.import_module('documentparserator.parserator.contract_parser')
 
 CLIENT = DocumentCloud()
 
@@ -104,15 +104,14 @@ def tokens_dump(docid):
     labels = get_labels()
     tagged_sequence = labels # replacing prep_inputs method. still works?
     tagged_strings.add(tuple(tagged_sequence))
-    module = __import__("contract_parser")  # import the parserator model
+    outfile = SETTINGS.XML_LOCATION + "/" + docid + ".xml"
     try:
-        os.remove("labels/" + docid + ".xml")
+        os.remove(outfile)
     except OSError:
         pass
-    # send the XML to the file. accept a collection.
     appendListToXMLfile(tagged_strings,
-                        module,
-                        "labels/" + docid + ".xml")
+                        MODULE,
+                        outfile)
     if len(queue) == 0:
         return "All done!"
     else:

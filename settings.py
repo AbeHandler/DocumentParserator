@@ -14,3 +14,4 @@ class Settings():
         self.LABELED_LOCATION = self.get_from_config("labeled_location")
         self.DOC_CLOUD_IDS = self.get_from_config('doc_cloud_ids')
         self.TAGS_LOCATION = self.get_from_config('tags_location')
+        self.XML_LOCATION = self.get_from_config('xml_location')

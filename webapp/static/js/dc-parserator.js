@@ -104,6 +104,7 @@ This is called once the viewer loads
 function viewer_has_loaded() {
     DV.viewers[_.keys(DV.viewers)[0]].api.onPageChange(function() {
         tokenize_current_page();
+        load_token_handlers();
     });
 }
 
@@ -156,7 +157,6 @@ function tokenize_current_page() {
         if (!current_page_has_span_tags()) {
             tag_and_tokenize();
         }else{
-            load_span_tags_from_values();
             console.log("Already has span tags. Not going to tag and tokenize");
         }
     }
