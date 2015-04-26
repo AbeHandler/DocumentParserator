@@ -98,6 +98,9 @@ Simple object to store the value of each token
 values = {}
 
 
+/**
+This is called once the viewer loads
+*/
 function viewer_has_loaded() {
     DV.viewers[_.keys(DV.viewers)[0]].api.onPageChange(function() {
         tokenize_current_page();
@@ -106,7 +109,7 @@ function viewer_has_loaded() {
 
 
 /**
-Returns true if span tags have already been added
+Does current page have span tags?
  */
 function current_page_has_span_tags() {
     var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
@@ -134,6 +137,7 @@ function current_page_is_undefined() {
 
 /**
 Will busy wait until the page is tokenized. 
+To do: 
 Eventually it would be great to get a callback
 from the DC viewer onPageLoad but it can't do that
 yet.
@@ -151,6 +155,9 @@ function tokenize_current_page() {
     } else {
         if (!current_page_has_span_tags()) {
             tag_and_tokenize();
+        }else{
+            load_span_tags_from_values();
+            console.log("Already has span tags. Not going to tag and tokenize");
         }
     }
 }
@@ -177,7 +184,9 @@ $("#xmlify").on("click", function() {
     });
 });
 
-
+/**
+Get tags and tokens from the server
+ */
 function tag_and_tokenize() {
     var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
     if (!current_page_has_span_tags(current_page)){
@@ -230,6 +239,9 @@ function load_token_handlers() {
             val['text'] = $("#" + event.target.id).html();
             val['value'] = name_class;
             values[event.target.id] = val;
+            var current_page =  DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
+            var text_contents = $(".DV-textContents").html(); //save the new html in the viewer
+            DV.viewers[_.keys(DV.viewers)[0]].api.setPageText(text_contents, current_page);
         }
     });
 }
