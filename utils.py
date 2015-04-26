@@ -24,7 +24,8 @@ def get_document_page(doc_cloud_id, page):
     """
     doc = client.documents.get(doc_cloud_id)
     page_text = doc.get_page_text(page)
-    page_text = page_text.encode("ascii", "ignore").decode("ascii", "ignore")
+    print type(page_text)
+    page_text = page_text.decode("ascii", "ignore").encode("ascii", "ignore")
     return page_text
 
 
