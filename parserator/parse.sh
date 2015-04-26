@@ -1,1 +1,1 @@
-parallel python parserate.py ::: $(find /backups/contracts/*_text.txt -type f)
+parallel python documentparserator/parserator/parserate.py ::: $(find /backups/contracts/*_text.txt -type f)

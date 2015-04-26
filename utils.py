@@ -48,31 +48,6 @@ def get_labeled_tokens(doc_cloud_id, page):
     return ids
 
 
-def tokenize(doc_cloud_id):
-    doc = client.documents.get(doc_cloud_id)
-    total_pages = doc.pages
-    all_tokens = {}
-    for page in range(1, total_pages):
-        page_tokens = get_labeled_tokens(doc_cloud_id, page)
-        all_tokens = {key: value for (key, value) in (all_tokens.items() + page_tokens.items())}
-    return all_tokens
-
-
-def pre_process(doc_cloud_id):
-    tokens = tokenize(doc_cloud_id)
-    tags = module.parse(client.documents.get(doc_cloud_id).full_text)
-    token_ids = sort_keys(tokens.keys())
-    out = []
-    for number in range(0, len(tags)):
-        tag = tags[number]
-        token = tokens[token_ids[number]]
-        token['label'] = tag[1]  # add the tag label to the token
-        token['id'] = token_ids[number]
-        assert token['word'] == tag[0]
-        out.append(token)
-    return out
-
-
 def span_wrap(text, span_id, tag):
     return "<span id=\"" + span_id + "\" class=\"token\" data-tag=\"" + tag + "\">" + text + "</span>"
 
