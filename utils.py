@@ -74,7 +74,7 @@ def pre_process(doc_cloud_id):
 
 
 def span_wrap(text, span_id, tag):
-    return "<span span_id=\"" + span_id + "\" class=\"token\" data-tag=\"" + tag + "\">" + text + "</span>"
+    return "<span id=\"" + span_id + "\" class=\"token\" data-tag=\"" + tag + "\">" + text + "</span>"
 
 
 def spanify(page_text, page_no):
