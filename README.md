@@ -35,11 +35,17 @@ To do
 
 ###Troubleshooting
 
-Too slow...
+There are a few hangups with running parserator on a bunch of documents. The first thing is that you tokenize every word things run fairly slowly. I wrote this working on a newish machine with 4 processors and I would just use the GNU parallel command to feed a bunch of files to parserator and leave it to run overnight. That worked fine for me. 
+
+Parserator uses conditional random fields, which get sllower get more Another option would be running two passes of parserator.  
 
 -paralell command
 
 
 ###Guide to code
+ 
+`webapp` - A simple flask application that generates parserator-ready XML (`webapp/labels`). The front end uses backbone, like Document Cloud.
 
-`webapp` - A simple flask application. The only complexity is is that `webapp/labels` stores parserator-ready XML
+`parserator` - Stores all of the stuff needed to parse documents. One folder in `/parserator` stores the actual parserator project.
+
+`labeled` - Stores documents that parserator has parsed. Parserator is too slow to do this on the fly while the web app is running. So you need to preprocess the files by running `./documentparserator/parserator/parse.sh`

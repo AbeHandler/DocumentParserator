@@ -12,3 +12,4 @@ class Settings():
         self.CONFIG_LOCATION = "config.cfg"
         self.LOG_LOCATION = self.get_from_config("log_location")
         self.LABELED_LOCATION = self.get_from_config("labeled_location")
+        self.DOC_CLOUD_IDS = self.get_from_config('doc_cloud_ids')

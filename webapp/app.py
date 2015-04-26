@@ -100,27 +100,6 @@ def tokens_dump(docid):
         return queue.pop()
 
 
-@app.route("/tags/<string:docid>", methods=['post'])
-def tags(docid):
-    """
-    The UI is requesting parserator's tags.
-    If they've been processed, send them to client side
-    Else, send a bunch of blank tags
-    """
-    page = request.args.get('page')
-    filename = 'static/json/' + docid
-    if not os.path.isfile(filename):
-        doc = CLIENT.documents.get(docid)
-        page_text = get_document_page(docid, page)
-        return spanify(page_text, str(page))
-    with open(filename) as tokens_file:
-        try:
-            file_json = json.load(tokens_file)
-            return json.dumps(file_json)
-        except:
-            return json.dumps(blanks)
-
-
 # TO DO DOES THIS METHOD WORK RIGHT? TESTS.
 
 def sort_have_labels(doc_cloud_id):
@@ -137,6 +116,6 @@ def sort_have_labels(doc_cloud_id):
 
 
 if __name__ == "__main__":
-    queue = get_queue("doc_cloud_ids.csv")
+    queue = get_queue(settings.DOC_CLOUD_IDS)
     queue.sort(key=sort_have_labels)  # sort fa
     app.run()
