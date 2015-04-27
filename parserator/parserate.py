@@ -1,11 +1,12 @@
 import json
 import sys
+import importlib
 from documentcloud import DocumentCloud
 from documentparserator.utils import sort_keys
 from documentparserator.settings import Settings
 
 settings = Settings()
-module = __import__(settings.MODULELOCATION)
+MODULE = importlib.import_module(settings.MODULELOCATION)
 client = DocumentCloud()
 
 
@@ -18,7 +19,7 @@ def tokenize(doc_cloud_id):
     pages = doc.pages
     for page in range(1, pages + 1):
         counter = 0
-        tokens = module.tokenize(doc.get_page_text(page))
+        tokens = MODULE.tokenize(doc.get_page_text(page))
         for t in tokens:
             tokenid = str(page) + "-" + str(counter)
             counter += 1
@@ -33,12 +34,12 @@ def tokenize(doc_cloud_id):
 def parse(doc_cloud_id):
     doc = client.documents.get(doc_cloud_id)
     full_text = doc.full_text
-    return module.parse()
+    return MODULE.parse()
 
 
 def pre_process(doc_cloud_id):
     tokens = tokenize(doc_cloud_id)
-    tags = module.parse(client.documents.get(doc_cloud_id).full_text)
+    tags = MODULE.parse(client.documents.get(doc_cloud_id).full_text)
     token_ids = sort_keys(tokens.keys())
     out = []
     for number in range(0, len(tags)):
@@ -54,9 +55,6 @@ doc_cloud_id = sys.argv[1].replace("/backups/contracts", "").replace("_text.txt"
 
 print doc_cloud_id
 
-try:
-    parsed = pre_process(doc_cloud_id)
-    with open(settings.LABELED_LOCATION + "/" + doc_cloud_id, "w") as f:
-        f.write(json.dumps(parsed))
-except:
-    pass
+parsed = pre_process(doc_cloud_id)
+with open(settings.LABELED_LOCATION + "/" + doc_cloud_id, "w") as f:
+    f.write(json.dumps(parsed))
