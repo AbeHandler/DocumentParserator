@@ -35,9 +35,9 @@ To do
 
 ###Troubleshooting
 
-There are a few hangups with running parserator on a bunch of documents. The first thing is that you tokenize every word things run fairly slowly. I wrote this working on a newish machine with 4 processors and I would just use the GNU parallel command to feed a bunch of files to parserator and leave it to run overnight. That worked fine for me. 
+There are a few hangups with running parserator on a bunch of documents. The first thing is that if you tokenize every word, things run fairly slowly. I wrote this working on a newish machine with 4 processors. I would just use the GNU parallel command to feed a bunch of files to parserator and leave it to run overnight. That worked fine for me. 
 
-Parserator uses conditional random fields, which get slower as you add more tags and more tokens. So another option would be running two passes of parserator: the first one uses really big tokens (as big as paragraphs) and just labels them 'interesting' or 'uninteresting'. Then the second pass just parses the interesting sentences. I opted not to do that because I'd rather wait for the computer to run than introduce that extra programming complexity.
+Parserator uses conditional random fields, which get slower as you add more tags and more tokens. So another option would be running two passes of parserator: the first one uses really big tokens (as big as paragraphs) and simply labels them as 'interesting' or 'uninteresting'. Then the second pass would parse the interesting paragraphs. I opted not to do that because I'd rather wait for the computer to run than introduce that extra programming complexity.
 
 ###Guide to code
  
