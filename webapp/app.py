@@ -14,12 +14,11 @@ from documentcloud import DocumentCloud
 from documentparserator.utils import get_document_page
 from documentparserator.settings import Settings
 
-MODULE = importlib.import_module('documentparserator.parserator.contract_parser')
+SETTINGS = Settings()
+MODULE = importlib.import_module(SETTINGS.MODULELOCATION)
 from parserator.data_prep_utils import appendListToXMLfile
 
 app = Flask(__name__)
-
-SETTINGS = Settings()
 
 logging.basicConfig(level=logging.DEBUG, filename=SETTINGS.LOG_LOCATION)
 
@@ -30,7 +29,7 @@ def main():
     """
     Present the first document in the queue for labeling
     """
-    return render_template('doc.html', docid=queue.pop())
+    return render_template('doc.html', docid=queue.pop(0))
 
 
 @app.route("/<string:docid>", methods=['GET'])
@@ -47,8 +46,9 @@ def get_queue(filename):
     Exclude those doc_cloud_ids that have already been labeled
     """
     queue = [q.replace("\n", "") for q in open(filename)]
-    queue = [l for l in queue if not os.path.exists("labels/" + l + ".xml")]
+    queue = [l for l in queue if not os.path.exists(SETTINGS.XML_LOCATION + l + ".xml")]
     queue = list(set(queue))  # dedupe
+    queue.sort(key=sort_have_labels)
     return queue
 
 
@@ -85,7 +85,7 @@ def tags(docid):
     page = request.args.get('page')
     filename = SETTINGS.LABELED_LOCATION + '/' + docid
     doc = CLIENT.documents.get(docid)
-    page_text = get_document_page(docid, page)
+    page_text = get_document_page(docid, page) # 
     if not os.path.isfile(filename):
         return spanify(page_text, page)
     else:
@@ -115,10 +115,8 @@ def tokens_dump(docid):
     if len(queue) == 0:
         return "All done!"
     else:
-        return queue.pop()
+        return queue.pop(0)
 
-
-# TO DO DOES THIS METHOD WORK RIGHT? TESTS.
 
 def sort_have_labels(doc_cloud_id):
     """
@@ -127,13 +125,12 @@ def sort_have_labels(doc_cloud_id):
     For big corpuses, parsing takes time so you don't want
     to parse the whole corpus just to see how it is doing
     """
-    filename = "static/json/" + doc_cloud_id
+    filename = SETTINGS.LABELED_LOCATION + "/" + doc_cloud_id
     if os.path.isfile(filename):
-        return 1
-    return 0
+        return 0
+    return 1
 
 
 if __name__ == "__main__":
     queue = get_queue(SETTINGS.DOC_CLOUD_IDS)
-    queue.sort(key=sort_have_labels)  # sort fa
     app.run()

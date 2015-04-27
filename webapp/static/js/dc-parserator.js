@@ -190,6 +190,7 @@ Get tags and tokens from the server
 function tag_and_tokenize() {
     var current_page = DV.viewers[_.keys(DV.viewers)[0]].api.currentPage();
     if (!current_page_has_span_tags(current_page)){
+        var page_text = $(".DV-textContents").html(); //getting html to preserve whitepsace
         $.post("tags/" + $("#doc_cloud_id").attr("data-docid") + "?page=" + current_page, function(data){
             DV.viewers[_.keys(DV.viewers)[0]].api.setPageText(data, current_page);
             $(".DV-textContents").html(data);

@@ -4,9 +4,9 @@ from documentcloud import DocumentCloud
 from documentparserator.utils import sort_keys
 from documentparserator.settings import Settings
 
-module = __import__("contract_parser")
-client = DocumentCloud()
 settings = Settings()
+module = __import__(settings.MODULELOCATION)
+client = DocumentCloud()
 
 
 def tokenize(doc_cloud_id):
