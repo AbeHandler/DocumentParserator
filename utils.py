@@ -2,17 +2,15 @@
 A few utility functions to support the web app
 """
 import json
-import re
-import sys
 import logging
 import importlib
 from documentparserator.settings import Settings
 from documentcloud import DocumentCloud
 
 SETTINGS = Settings()
-module = importlib.import_module('documentparserator.parserator.contract_parser')
+MODULE = importlib.import_module(SETTINGS.MODULELOCATION)
 logging.basicConfig(level=logging.DEBUG, filename=SETTINGS.LOG_LOCATION)
-client = DocumentCloud()
+CLIENT = DocumentCloud()
 
 
 def get_colors(tag):
@@ -32,13 +30,13 @@ def sort_keys(keys):
     keys.sort(key=lambda x: int(x.split("-")[1]))
     keys.sort(key=lambda x: int(x.split("-")[0]))
     return keys
-  
+
 
 def get_document_page(doc_cloud_id, page):
     """
     Get a page in a document cloud document
     """
-    doc = client.documents.get(doc_cloud_id)
+    doc = CLIENT.documents.get(doc_cloud_id)
     page_text = doc.get_page_text(page)
     page_text = page_text.decode("ascii", "ignore").encode("ascii", "ignore")
     return page_text
@@ -46,8 +44,12 @@ def get_document_page(doc_cloud_id, page):
 
 # TO DO JINJA TEMPLATE
 def span_wrap(text, span_id, tag):
+    """
+    Wrap a token in a span tag
+    """
     if tag == "skip":
-        return "<span id=\"" + span_id + "\" class=\"token\" data-tag=\"" + tag + "\">" + text + "</span>"
+        return "<span id=\"" + span_id +\
+          "\" class=\"token\" data-tag=\"" + tag + "\">" + text + "</span>"
     else:
         colors = get_colors(tag)
         style = 'style="border: 2px solid rgb(' + str(colors['red']) + ',' +\
@@ -58,7 +60,12 @@ def span_wrap(text, span_id, tag):
                ">" + text + "</span>"
 
 def spanify(page_text, page_no, labels=None):
-    tokens = module.tokenize(page_text, True)
+    """
+    Take a page of text and wrap it in span tags
+    If the labels from parserator are provided.
+    Otherwise it defaults to skip
+    """
+    tokens = MODULE.tokenize(page_text, True)
     last_index_mem = 0
     in_between = ""
     new_tokens = []
@@ -68,13 +75,14 @@ def spanify(page_text, page_no, labels=None):
         start = token[0]
         end = token[1]
         token_no = token_no + 1
-        if (last_index_mem > 0): 
+        if last_index_mem > 0:
             in_between = page_text[last_index_mem: start]
         last_index_mem = end
         spanid = str(page_no) + "-" + str(token_no)
         if labels:
             try:
-                correct_label = [l for l in labels if spanid == l['id']].pop()['label']
+                correct_label = [l for l\
+                 in labels if spanid == l['id']].pop()['label']
             except IndexError:
                 logging.debug("Skipping. Could not find label for " + spanid)
                 correct_label = "skip"
