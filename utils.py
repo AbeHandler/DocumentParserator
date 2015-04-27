@@ -1,3 +1,6 @@
+"""
+A few utility functions to support the web app
+"""
 import json
 import re
 import sys
@@ -18,7 +21,7 @@ def get_colors(tag):
     """
     with open(SETTINGS.TAGS_LOCATION) as data_file:
         data = json.load(data_file)
-    return [d for d in data if d['name']==tag].pop()
+    return [d for d in data if d['name'] == tag].pop()
 
 
 def sort_keys(keys):
@@ -41,27 +44,9 @@ def get_document_page(doc_cloud_id, page):
     return page_text
 
 
-def get_labeled_tokens(doc_cloud_id, page):
-    """
-    Take a page of document cloud and return labeled tokens
-    """
-    page_text = get_document_page(doc_cloud_id, page_text)
-    page_tokens =  module.tokenize(page_text)
-    ids = {}
-    counter = 1
-    for t in tokens:
-        tokenid = str(page) + "-" + str(counter)
-        counter += 1
-        output = {}
-        output['page'] = page
-        output['word'] = t
-        output['count'] = counter
-        ids[tokenid] = output
-    return ids
-
-
+# TO DO JINJA TEMPLATE
 def span_wrap(text, span_id, tag):
-    if tag=="skip":
+    if tag == "skip":
         return "<span id=\"" + span_id + "\" class=\"token\" data-tag=\"" + tag + "\">" + text + "</span>"
     else:
         colors = get_colors(tag)
@@ -79,17 +64,17 @@ def spanify(page_text, page_no, labels=None):
     new_tokens = []
     in_betweens = []
     token_no = 1
-    for t in tokens:
-        start = t[0]
-        end = t[1]
+    for token in tokens:
+        start = token[0]
+        end = token[1]
         token_no = token_no + 1
         if (last_index_mem > 0): 
-            in_between = page_text[last_index_mem: start];
-        last_index_mem = end;
+            in_between = page_text[last_index_mem: start]
+        last_index_mem = end
         spanid = str(page_no) + "-" + str(token_no)
         if labels:
             try:
-                correct_label = [l for l in labels if spanid==l['id']].pop()['label']
+                correct_label = [l for l in labels if spanid == l['id']].pop()['label']
             except IndexError:
                 logging.debug("Skipping. Could not find label for " + spanid)
                 correct_label = "skip"
@@ -101,7 +86,7 @@ def spanify(page_text, page_no, labels=None):
 
     output = ""
 
-    for i in range(0,len(new_tokens)):
+    for i in range(0, len(new_tokens)):
         output = output + new_tokens[i] + in_betweens[i]
 
     return output.replace("\n", "<br />")

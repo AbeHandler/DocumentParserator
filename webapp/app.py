@@ -2,7 +2,6 @@
 This very simple Flask app allows you to tag tokens in a DocumentCloud document
 """
 from flask import Flask
-from flask import jsonify
 import logging
 import os
 import importlib
@@ -13,10 +12,10 @@ from flask import render_template, request
 from documentcloud import DocumentCloud
 from documentparserator.utils import get_document_page
 from documentparserator.settings import Settings
+from parserator.data_prep_utils import appendListToXMLfile
 
 SETTINGS = Settings()
 MODULE = importlib.import_module(SETTINGS.MODULELOCATION)
-from parserator.data_prep_utils import appendListToXMLfile
 
 app = Flask(__name__)
 
@@ -45,18 +44,12 @@ def get_queue(filename):
     Build a queue of docs to be labeled
     Exclude those doc_cloud_ids that have already been labeled
     """
-    queue = [q.replace("\n", "") for q in open(filename)]
-    queue = [l for l in queue if not os.path.exists(SETTINGS.XML_LOCATION + l + ".xml")]
-    queue = list(set(queue))  # dedupe
-    queue.sort(key=sort_have_labels)
-    return queue
-
-
-def prep_inputs(raw_sequence):
-    sequence_labels = []
-    for token in raw_sequence:
-        sequence_labels.append((token[0], token[1]))
-    return sequence_labels
+    build_queue = [q.replace("\n", "") for q in open(filename)]
+    build_queue = [l for l in queue\
+              if not os.path.exists(SETTINGS.XML_LOCATION + l + ".xml")]
+    build_queue = list(set(queue))  # dedupe
+    build_queue.sort(key=sort_have_labels)
+    return build_queue
 
 
 def get_labels():
@@ -84,8 +77,7 @@ def tags(docid):
     """
     page = request.args.get('page')
     filename = SETTINGS.LABELED_LOCATION + '/' + docid
-    doc = CLIENT.documents.get(docid)
-    page_text = get_document_page(docid, page) # 
+    page_text = get_document_page(docid, page)
     if not os.path.isfile(filename):
         return spanify(page_text, page)
     else:
