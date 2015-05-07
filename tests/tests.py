@@ -18,3 +18,12 @@ class TestOrdering(TestCase):
         queue = ["1112346-science-applications-international-corporation", "Smith"]
         queue.sort(key=sort_have_labels)
         self.assertEquals(queue[0], "1112346-science-applications-international-corporation")
+
+    def test_five(self):
+        self.assertEquals(any(char.isdigit() for char in "asdf 1 asdfa"), True)
+
+    def test_six(self):
+        self.assertEquals(any(char.isdigit() for char in "asdf asdfa"), False)
+
+    def test_seven(self):
+        self.assertEquals(any(char.isdigit() for char in "a3sdf as5dfa"), True)

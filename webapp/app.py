@@ -45,9 +45,9 @@ def get_queue(filename):
     Exclude those doc_cloud_ids that have already been labeled
     """
     build_queue = [q.replace("\n", "") for q in open(filename)]
-    build_queue = [l for l in queue\
+    build_queue = [l for l in build_queue\
               if not os.path.exists(SETTINGS.XML_LOCATION + l + ".xml")]
-    build_queue = list(set(queue))  # dedupe
+    build_queue = list(set(build_queue))  # dedupe
     build_queue.sort(key=sort_have_labels)
     return build_queue
 
