@@ -1,3 +1,5 @@
+![Document Output](works.png)
+
 ###What is this?
 
 [Parserator](http://www.github.com/datamade/parserator) makes it easy to create custom parsers which label text using probabilistic methods. 
