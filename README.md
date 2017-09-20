@@ -1,6 +1,6 @@
 ![Document Output](works.png)
 
-###What is this?
+### What is this?
 
 [Parserator](http://www.github.com/datamade/parserator) makes it easy to create custom parsers which label text using probabilistic methods. 
 
@@ -26,22 +26,18 @@ and get out structured data like this
     }
 
 
-###Couldn't I just use a regular expression?
+### Couldn't I just use a regular expression?
 Maybe. If your text data has a very rigid and predictable structure, you might just be able to use a regex to pull out this sort of information. But lots of text has much more complex structures which require more complex methods. 
 
 When I started the New Orleans contracts project, first I tried to just use a regex. Then I tried to use Parserator on little snippets of the contracts. Then I realized that what I really needed was to run Parserator on an entire document so that (1) Parserator could consider the full context in assigning labels and (2) I could easily review and correct its output in one place, using a single UI. 
 
-###OK. I'm sold. How do I use it? 
-
-To do
-
-###Troubleshooting
+### Troubleshooting
 
 There are a few hangups with running parserator on a bunch of documents. The first thing is that if you tokenize every word, things run fairly slowly. I wrote this working on a newish machine with 4 processors. I would just use the GNU parallel command to feed a bunch of files to parserator and leave it to run overnight. That worked fine for me. 
 
 Parserator uses conditional random fields, which get slower as you add more tags and more tokens. So another option would be running two passes of parserator: the first one uses really big tokens (as big as paragraphs) and simply labels them as 'interesting' or 'uninteresting'. Then the second pass would parse the interesting paragraphs. I opted not to do that because I'd rather wait for the computer to run than introduce that extra programming complexity.
 
-###Guide to code
+### Guide to code
  
 `webapp` - A simple flask application that generates parserator-ready XML (`webapp/labels`). The front end uses backbone, like Document Cloud.
 
